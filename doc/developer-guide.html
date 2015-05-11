@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)http://developer.ticwear.com/doc/getting-started -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="http://developer.ticwear.com/assets/img/logo_32.png">
+    <link rel="stylesheet" href="http://developer.ticwear.com/assets/css/vendor/reset.css">
+    <link rel="stylesheet" href="http://developer.ticwear.com/assets/css/common.css">
+    <link rel="stylesheet" href="http://developer.ticwear.com/assets/css/documentation.css">
+    <title>新手入门</title>
+<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/assets/js/common/header.js" src="./developer-guide_files/header.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery" src="./developer-guide_files/jquery.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/assets/js/common/layer.js" src="./developer-guide_files/layer.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/assets/js/common/forget-password.js" src="./developer-guide_files/forget-password.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/assets/js/common/sign-in.js" src="./developer-guide_files/sign-in.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/assets/js/common/sign-up.js" src="./developer-guide_files/sign-up.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/assets/js/common/reject.js" src="./developer-guide_files/reject.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/assets/js/common/offline.js" src="./developer-guide_files/offline.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/assets/js/common/not-found.js" src="./developer-guide_files/not-found.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/assets/js/common/validation.js" src="./developer-guide_files/validation.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/assets/js/common/button.js" src="./developer-guide_files/button.js"></script></head>
+<body>
+    <div class="header">
+        <div class="top-bar">
+            <h1>
+                <a class="logo" href="http://developer.ticwear.com/">
+                    <span class="site-name text-primary">开发者平台</span>
+                </a>
+            </h1>
+            <div class="info">
+            
+                
+                    <a class="_sign-in sign-in-btn btn-primary" href="javascript:void(0);">登录</a>
+                    <a class="_sign-up sign-up-btn" href="javascript:void(0);">注册</a>
+                
+            
+            </div>
+        </div>
+        <div class="nav-wrap">
+            <ul class="nav">
+                <li class="item ">
+                    <a class="link" href="http://developer.ticwear.com/">首页</a>
+                </li>
+                <li class="item ">
+                
+                    
+                        <a class="_sign-in link" href="javascript:void(0);">我的应用</a>
+                    
+                
+                </li>
+                <li class="item current">
+                    <a class="link" href="./developer-guide_files/developer-guide.html">文档</a>
+                </li>
+                <li class="item ">
+                    <a class="link" href="http://developer.ticwear.com/faq">帮助</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="http://ask.ticwear.com/" target="_blank">论坛</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+<div class="download-wrap">
+    <a class="download-btn" href="http://onebox.oss.aliyuncs.com/ticwear/mobvoi-api.jar">下载SDK</a>
+</div>
+<div class="container">
+    <ul class="catelog">
+        <li>
+            <span class="chapter">概述</span>
+            <ul>
+                <li>
+                    <a class="section active" href="./developer-guide_files/developer-guide.html">快速入门</a>
+                </li>
+                <li>
+                    <a class="section " href="http://developer.ticwear.com/doc/gms-compat">AW应用迁移</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <span class="chapter">API</span>
+            <ul>
+                <li>
+                    <a class="section " href="http://developer.ticwear.com/doc/wearable-api">数据传输API</a>
+                </li>
+                <li>
+                    <a class="section " href="http://developer.ticwear.com/doc/sensor-api">传感器API</a>
+                </li>
+                <li>
+                    <a class="section " href="http://developer.ticwear.com/doc/search-api">搜索API</a>
+                </li>
+                <li>
+                    <a class="section " href="http://developer.ticwear.com/doc/speech-api">语音API</a>
+                </li>
+                <li>
+                    <a class="section " href="http://developer.ticwear.com/doc/semantic-api">语义API</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <span class="chapter">设计</span>
+            <ul>
+                <li>
+                    <a class="section " href="http://developer.ticwear.com/doc/guideline">设计规范</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <div class="article">
+        <h2>快速入门</h2>
+<h3 class="text-primary">1. 创建一个Ticwear应用</h3>
+<p>一个Ticwear应用由两部分组成：1) 运行在手表端的APK；2) 运行在手机端的应用。通常情况下，运行在手表端的APK会被打包在手机端应用中，在安装时会被自动推送到手表上。所以将Ticwear应用上传到Ticwear应用商店时只需要上传手机端应用即可。在这里，我们将一步步教你如何创建一个简单的Ticwear应用。</p>
+<h3 class="text-primary">2. 下载SDK</h3>
+<p> 在开发应用前，将安卓SDK版本升级到<a href="https://developer.android.com/sdk/index.html">最新版本</a>, 可以获取最新的API支持。</p>
+<p>手表端Ticwear系统兼容Android 5.0的API，所以开发者可以基于Android 5.0的SDK开发手表端的应用，该应用可以直接在Ticwear系统上运行。但是当开发者在开发手机端的应用时则应和普通的安卓应用一样，依据用户的手机安卓系统版本来确定支持的API。</p>
+<h3 class="text-primary">3. 配置开发环境</h3>
+<p>在应用市场上下载最新版本的Ticwear助手，安装在手机上。手机安卓系统必须为安卓4.3以上版本。将手表和手机均连接到电脑上，若手表无法通过USB直接连接电脑，请参看<a href="http://developer.ticwear.com/doc/getting-started#blue-debug">蓝牙调试</a>连接手表。</p>
+<h3 class="text-primary">4. 创建项目</h3>
+<p>用Eclipse或者Android Studio均可以创建开发项目。以Android Studio举例说明，在创建项目过程中，点击 File -&gt; New Project ，按照建立程序向导的提示，进行以下步骤的操作：</p>
+<p>1) 在Configure your new project窗口，输入应用名和包名。</p>
+<p>2) 在Form factors窗口:</p>
+<p class="deep-indent">* 选择Phone and Tablet并选择API 18: Android 4.3 (Jelly Bean) 作为Minimum SDK。</p>
+<p class="deep-indent">* 选择Wear并选择API 20: Android 4.4 (KitKat Wear) 作为Minimum SDK。</p>
+<p>3) 在第一个Add an activity to Mobile窗口，为手机移动设备添加一个空白Activity。</p>
+<p>4) 在第二个Add an activity to Wear窗口，为手表设备添加一个空白Activity。</p>
+<p>5) 下载<a href="http://onebox.oss.aliyuncs.com/ticwear/mobvoi-api.jar">mobvoi-api</a>，添加到项目的库依赖中。</p>
+<p>当结束创建向导以后，Android Studio会创建一个包含两个模块的新工程。你现在可以为手机端和手表端的两个应用创建Activity、Service、UI等等。在手机端应用，一般做一些比较重的任务，例如网络连接，复杂的计算或者一些需要复杂用户交互的任务。当在手机端完成任务以后，可以把手机端的处理结果通过<a href="http://developer.ticwear.com/doc/wearable-api.htm">Wearable API</a>通知给手表端。</p>
+<h3 class="text-primary">5. 安装手表端应用</h3>
+<p>将生成的手表端APK通过<code style="color:#008200">adb install</code>的方式即可安装到手表端。也可以通过Eclipse或者Android Studio直接将手表端APK安装到手表端。</p>
+<h3 class="text-primary">6.打包应用</h3>
+<p>手机端和手表端的应用可以分别独立安装到手机和手表上。但如果希望上传到应用商店，由Ticwear来将手表端的应用自动推送到手表上安装，需要打包一个包含手表端应用的手机端APK应用。首先分别写出手机端和手表端的两个应用，然后遵循如下的步骤：</p>
+<p>1) 将手表端APK的所有Manifest中的权限声明都在手机端APK的Manifest中声明。</p>
+<p>2) 保证手表端APK和手机端APK有同样的包名和版本号</p>
+<p>3) 将签名以后的手表端应用拷贝到手机端项目的res/raw的目录下，命名该手表端应用为wearable_app.apk</p>
+<p>4) 创建一个<code class="command-green">res/xml/wearable_app_desc.xml</code>文件，包括手表端应用的版本和路径信息。例如：</p>
+<code class="code-block command-blue">&lt;wearableApp <strong class="command-green">package</strong>=<strong class="command-brown">"wearable.app.package.name"</strong>&gt;
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;versionCode&gt;<strong class="command-black">1</strong>&lt;/versionCode&gt;
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;versionName&gt;<strong class="command-black">1.0</strong>&lt;/versionName&gt;
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;rawPathResId&gt;<strong class="command-black">wearable_app</strong>&lt;/rawPathResId&gt;
+    &lt;/wearableApp&gt;</code>
+<p>5) 添加一个<code class="command-green">meta-data</code>标签在手机端app的<code class="command-green">&lt;application&gt;</code>中，声明<code class="command-green">wearable_app_desc.xml</code>的路径。</p>
+<code class="code-block">&lt;meta-data <strong class="command-purple">android:name</strong>=<strong class="command-brown">"com.mobvoi.ticwear.app"</strong> <strong class="command-purple">android:resource</strong>=<strong class="command-brown">"@xml/wearable_app_desc"/</strong>&gt;</code>
+<p>6) 打包，使用与手表端应用相同的签名对最终的手机端APK进行签名。</p>
+<p>7) 最后得到的手机端APK即为符合要求可以上传应用商店的应用。</p>
+<p>另外，也可以使用Android Studio对一般可穿戴应用的打包方法进行自动打包。但是需要手动添加以上步骤5中的Ticwear声明标识。</p>
+<h3 id="blue-debug" class="text-primary">7. 蓝牙调试</h3>
+<p>对于手表无法通过USB连接到电脑的情况，Ticwear支持使用蓝牙进行调试。使用方法：</p>
+<p>1) 打开手表端的设置，进入“关于”，多次点击版本号，即可打开开发者选项。</p>
+<p>2) 打开手表端开发者选项中的“ADB调试“和“通过蓝牙调试”。</p>
+<p>3) 打开手机端Ticwear助手，点击右上角进入“更多”选项，多次点击版本号，打开开发者选项。</p>
+<p>4) 打开手机端开发者蓝牙调试开关。</p>
+<p>5) 执行以下命令:</p>
+<code class="code-block"><strong class="command-green">adb forward tcp:4444 localabstract:/adb-hub</strong>
+    <strong class="command-green">adb connect localhost:4444</strong></code>
+<p>6) 这时应该看到手机端蓝牙调试选项中target和host的状态都变为connected。现在即可使用adb命令操作手表端。</p>
+<code class="code-block"><strong class="command-green">adb -s localhost:4444</strong> <strong class="command-brown">&lt;command&gt;</strong></code>
+<h3 class="text-primary">8. 发送和同步数据</h3>
+<p>MMS的API提供了一系列的接口作为手机端和手表端应用的通信方式。在实际应用中应该使用这些API来保证你的应用可以进行有效的通信，而不需要自己建立和管理蓝牙连接以及数据收发。主要包括以下三种API：</p>
+<p><strong class="explain">MessageAPI</strong>: 一般简单无需保证同步的消息的收发。比较适用于进行远程调用的场景。例如从手表发送一些控制指令以控制手机端的音乐播放器。消息对于一些单向的请求模型也比较使用。如果手机端和手表端已经通过蓝牙连接上，那么消息会被成功发送并返回一个正确的返回码。如果蓝牙未连接，那么消息发送失败，并返回一个错误的返回码。</p>
+<p><strong class="explain">DataAPI</strong>: 手机端和手表端之间互相同步的数据存储。当手机端和手表端处于连接状态时，数据会马上进行同步。若处于未连接状态时，会暂时存储在一方，待重新连接上时再进行同步。方便调用者进行复杂的需要保证数据一致的数据传输。当数据同步完成后，数据的接收方会收到对应的消息通知。为了避免数据同步中可能的冲突，调用者最好不要在手机端和手表端对同一份数据进行修改。</p>
+<p><strong class="explain">NodeAPI</strong>: 节点连接状态的API，可以获取当前连接的节点集合。同时也可以监听连接和断连的事件通知，作出相应操作。</p>
+<p>切记，在使用Wearable API进行通信时，请保证手机端和手表端的应用的包名和签名相同，否则会收不到消息。</p>
+<p>以下是一些简单的相关概念：</p>
+<p><strong class="explain">Data Items</strong>: 一个DataItem提供了可以在手机端和手表端之间同步的数据存储。</p>
+<p><strong class="explain">Asset</strong>: Asset对象是为了用来发送二进制数据例如图片之类的。将asset附着在data items里面，MMS会自动保证asset数据的发送和同步，并自动缓存了一些asset来避免无用的蓝牙的传输。</p>
+<p><strong class="explain">WearableListenerService</strong> (用于Service): 继承WearableListenerService之后，可以在该Service里面监听到相关的接收消息和data items的事件。</p>
+<p><strong class="explain">DataListener, MessageListener</strong> (用于Activity): 实现DataListener以后，可以监听DataItem改变或者被删除的事件。实现MessageListener以后，可以接收发过来的消息。</p>
+<h3 class="text-primary">9. 创建适合手表展现的界面</h3>
+<p>一般的Android界面可以在手表上运行，但并不是特别适合手表端的展现。所以开发者可以选用手表端的UI库来创建更适合在手表端展现的样式。在Android Studio里面自带了适合手表使用的UI库。如果使用Eclipse开发，可以在这里<a href="http://onebox.oss.aliyuncs.com/ticwear/wearable-support-lib.zip">点击下载</a>这个UI库。下载以后，建立一个Android的library项目，然后在正式项目中声明对该项目的依赖即可。</p>
+<p>以下是一些主要的类：</p>
+<p><strong class="explain">BoxInsetLayout</strong>: 一个对屏幕形状可以自适应的FrameLayout，并能够把子视图放在圆形屏幕中心。</p>
+<p><strong class="explain">CardFragment</strong>: 一个包含可展开的卡片，同时在竖直方向上可滑动的容器。</p>
+<p><strong class="explain">CircledImageView</strong>: 一个圆形的image view。</p>
+<p><strong class="explain">ConfirmationActivity</strong>: 一个让用户完成确认操作的activity。</p>
+<p><strong class="explain">CrossFadeDrawable</strong>: 包含两个drawable，提供一些方法在这两个drawable之间平滑切换。</p>
+<p><strong class="explain">DelayedConfirmationView</strong>: 一个延迟确认的视图。提供倒计时确认功能。</p>
+<p><strong class="explain">DismissOverlayView</strong>: 一个实现长按消失的视图。</p>
+<p><strong class="explain">DotsPageIndicator</strong>: 一个为GridViewPager提供页码的视图。</p>
+<p><strong class="explain">GridViewPager</strong>: 一个可以在竖直和水平方向上滑动翻页的视图。</p>
+<p><strong class="explain">GridPagerAdapter</strong>: 一个提供页面数据给GridViewPager的adapter。</p>
+<p><strong class="explain">FragmentGridPagerAdapter</strong>: 一个GridPagerAdapter的实现。</p>
+<p><strong class="explain">WatchViewStub</strong>: 根据屏幕形状自适应的layout。</p>
+<p><strong class="explain">WearableListView</strong>: 一个为手表适配优化过的ListView。</p>
+
+    </div>
+</div>
+
+    <div class="footer">
+        <div class="nav-wrap">
+            <ul class="nav">
+                <li class="item">
+                    <a class="link" href="http://ticwear.com/">关于Ticwear</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="http://ticwear.com/contactUs.html">工作机会</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="http://ticwear.com/aboutUs.html#contact_us">联系我们</a>
+                </li>
+            </ul>
+            <span class="custom-service">客服热线：400-883-8390 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 开发者QQ群：114947882</span>
+        </div>
+        <div class="copyright">Copyright © 2015 Mobvoi, Inc. All rights reserved. 京ICP备14058077号-1</div>
+    </div>
+    <div class="_forget-password-layer forget-password-layer layer" data-type="forget-password">
+        <span class="title">找回密码</span>
+        <a class="_close-btn close-btn" href="javascript:void(0);"></a>
+        <div class="textfile">
+            <input class="_email" data-rule="^.{1,50}$" data-toast="邮箱不能为空" placeholder="请输入您的邮箱">
+            <div class="divmsg"></div>
+        </div>
+        <a class="_next-btn btn-primary btn" data-loading="找回中..." href="javascript:void(0);">下一步</a>
+    </div>
+    <div class="_sign-up-layer sign-up-layer layer" data-type="sign-up">
+        <span class="title">新用户注册</span>
+        <a class="_close-btn close-btn" href="javascript:void(0);"></a>
+        <div class="textfile">
+            <input class="_email" data-rule="^[A-Za-z0-9+_.-]+@(.+)$" data-toast="请输入正确邮箱" placeholder="邮箱">
+            <div class="divmsg"></div>
+        </div>
+        <div class="textfile">
+            <input class="_password" data-rule="^.{8,50}$" data-toast="密码，数字加字母至少8位" type="password" placeholder="密码，数字加字母至少8位">
+            <div class="divmsg"></div>
+        </div>
+        <div class="textfile">
+            <input class="_phoneNum" data-rule="^[0-9]{11}$" data-toast="请输入正确的手机号码" placeholder="手机号码">
+            <div class="divmsg"></div>
+        </div>
+        <div class="code-wrap">
+            <a class="_captcha-btn btn" href="javascript:void(0);">获取验证码</a>
+            <div class="textfile">
+                <input class="_captcha" data-rule="^.{1,50}$" data-toast="短信验证码不能为空" placeholder="短信验证码">
+                <div class="divmsg"></div>
+            </div>
+        </div>
+        <div class="textfile">
+            <input class="_name" data-rule="^.{1,50}$" data-toast="账户名不能为空" placeholder="账户名（app作者）">
+            <div class="divmsg"></div>
+        </div>
+        <div class="textfile" hidden="hidden">
+            <!--<input class="_idCard" data-rule="^.{18}$" data-toast="请填写正确的身份证号" placeholder="身份证号"/>-->
+        </div>
+        <div class="term">点击“立即注册”，即表示您同意 <a class="text-primary" href="http://developer.ticwear.com/agreement" target="_blank">《出门问问用户协议》</a></div>
+        <a class="_sign-up-btn btn-primary btn" data-loading="注册中..." href="javascript:void(0);">立即注册</a>
+    </div>
+    <div class="_sign-in-layer sign-in-layer layer" data-type="sign-in">
+        <span class="title">登录</span>
+        <a class="_close-btn close-btn" href="javascript:void(0);"></a>
+        <div class="textfile">
+            <input class="_email" data-rule="^.{1,50}$" data-toast="用户名不能为空" placeholder="邮箱/手机号">
+            <div class="divmsg"></div>
+        </div>
+        <div class="textfile">
+            <input class="_password" data-rule="^.{1,50}" data-toast="密码不能为空" type="password" placeholder="密码">
+            <div class="divmsg"></div>
+        </div>
+        <a class="_forget-password-btn text-primary forget-password" href="javascript:void(0);">忘记密码?</a>
+        <a class="_sign-in-btn btn-primary btn" data-loading="登录中..." href="javascript:void(0);">登录</a>
+        <a class="_sign-up-btn sign-up-btn btn" href="javascript:void(0);">注册</a>
+    </div>
+    <div class="_reject-layer check-layer layer" data-type="reject">
+        <span class="title">拒绝原因</span>
+        <a class="_close-btn close-btn" href="javascript:void(0);"></a>
+        <div class="check-textarea">
+            <textarea class="_reason" data-rule="^.{1,100}" data-toast="拒绝原因不能为空" placeholder="请输入拒绝原因"></textarea>
+            <div class="divmsg"></div>
+        </div>
+        <a class="_enter-btn enter-btn btn-primary btn" data-loading="提交中..." href="javascript:void(0);">确定</a>
+        <a class="_cancel-btn cancel-btn btn" href="javascript:void(0);">取消</a>
+    </div>
+    <div class="_offline-layer check-layer layer" data-type="offline">
+        <span class="title">下架原因</span>
+        <a class="_close-btn close-btn" href="javascript:void(0);"></a>
+        <div class="check-textarea">
+            <textarea class="_reason" data-rule="^.{1,100}" data-toast="下架原因不能为空" placeholder="请输入下架原因"></textarea>
+            <div class="divmsg"></div>
+        </div>
+        <a class="_enter-btn enter-btn btn-primary btn" data-loading="提交中..." href="javascript:void(0);">确定</a>
+        <a class="_cancel-btn cancel-btn btn" href="javascript:void(0);">取消</a>
+    </div>
+    <div class="_not-found-layer not-found-layer layer" data-type="not-found">
+        <p class="description">表哥表妹正努力工作中，敬请期待！</p>
+        <a class="_enter-btn btn-primary btn" href="javascript:void(0);">确定</a>
+    </div>
+    <script src="./developer-guide_files/require.min.js"></script>
+    <script>
+    require.config({
+        paths:{
+            jquery: '/assets/js/vendor/jquery.min'
+        }
+    });
+    </script>
+    
+<script>
+require(['/assets/js/common/header.js'],function(header){
+    header.init();
+});
+</script>
+
+
+
+
+
+</body></html>
