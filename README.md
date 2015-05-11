@@ -1,1 +1,1 @@
-# SDK
+# Ticwear Developer SDK
