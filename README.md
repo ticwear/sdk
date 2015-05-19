@@ -4,12 +4,13 @@
 **微博：Ticwear**  
 **社区：http://ask.ticwear.com/**  
 
-## 对于非Android Wear开发者，我们建议您采用如下步骤
+## 非Android Wear开发者
+我们建议您采用如下步骤
 * Step 1：运行sample文件夹里的示例程序来了解SDK提供的基本功能
 * Step 2：阅读开发文档深入了解如何使用: http://developer.ticwear.com/doc/getting-started
 
-## 对于Android Wear开发者，您可以很快将自己的应用移植到Ticwear平台
-* 请参考文档：http://developer.ticwear.com/doc/gms-compat
+## Android Wear开发者
+您可以很快将自己的应用移植到Ticwear平台，请参考文档：http://developer.ticwear.com/doc/gms-compat
 
 如果您想让您的应用同时兼容Android Wear和Ticwear，请采用如下步骤
 * 引入mobvoi-api.jar，同时保留google-play-services.jar
@@ -22,9 +23,9 @@
 
 在该行后加入一行配置用来为Ticwear指定子App位置，如：
 ```java
-<meta-data android:name="com.mobvoi.ticwear.app" android:resource="@xml/wearable_app_desc"/>
+<meta-data android:name="com.mobvoi.ticwear.app"
+           android:resource="@xml/wearable_app_desc"/>
 ```
-
 * 在AndroidManifest.xml中注册GMS Wearable Listener Service的代理服务：
 ```java
 <service android:name="com.mobvoi.android.wearable.WearableListenerServiceGoogleImpl">
@@ -33,5 +34,4 @@
   </intent-filter>
 </service> 
 ```
-
 * 重新编译打包
