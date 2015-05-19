@@ -27,6 +27,7 @@
   <meta-data android:name="com.mobvoi.ticwear.app" android:resource="@xml/wearable_app_desc"/>
   ```
 * 在AndroidManifest.xml中注册GMS Wearable Listener Service的代理服务：
+
   ```java
   <service android:name="com.mobvoi.android.wearable.WearableListenerServiceGoogleImpl">
     <intent-filter>
