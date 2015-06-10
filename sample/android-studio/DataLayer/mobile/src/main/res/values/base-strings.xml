@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="app_name">DataLayer</string>
+    <string name="intro_message">
+        <![CDATA[
+        
+            
+            Sample demonstrating the usage of the MobvoiApiClient in order to send data
+            from a handheld device to a wearable. The data transmitted is a picture taken by
+            the user of the sample.
+            
+        
+        ]]>
+    </string>
+</resources>
