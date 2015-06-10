@@ -5,5 +5,5 @@ For non-Chinese developers, you can convert existing Android Wear apps according
 http://developer.ticwear.com/doc/gms-compat-en
 
 For developers who use Android Studio, you can refer to:
-https://github.com/ticwear/sdk/blob/master/sample/android-studio/Readme.txt
+https://github.com/ticwear/sdk/blob/master/sample/android-studio/DataLayer/Readme.txt
 
