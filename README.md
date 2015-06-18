@@ -2,6 +2,7 @@
 为了方便第三方开发者迅速使用SDK来开发Ticwear应用，我们提供了以下联系方式来协助开发：  
 **QQ群：114947882**  
 **微博：Ticwear**  
+**官网：http://developer.ticwear.com/**  
 **社区：http://ask.ticwear.com/**  
 
 ## 非Android Wear开发者
