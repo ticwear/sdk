@@ -1,7 +1,0 @@
-int drawable ic_launcher 0x7f020000
-int id layout 0x7f050000
-int id speak_tip 0x7f050002
-int id test_button 0x7f050001
-int layout dication_demo_activity 0x7f030000
-int string app_name 0x7f040000
-int string intro 0x7f040001
