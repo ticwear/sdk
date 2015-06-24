@@ -2,11 +2,12 @@
 为了方便第三方开发者迅速使用SDK来开发Ticwear应用，我们提供了以下联系方式来协助开发：  
 **QQ群：114947882**  
 **微博：Ticwear**  
+**官网：http://developer.ticwear.com/**  
 **社区：http://ask.ticwear.com/**  
 
 ## 非Android Wear开发者
 我们建议您采用如下步骤
-* Step 1：运行sample文件夹里的示例程序来了解SDK提供的基本功能
+* Step 1：运行sample文件夹里的示例程序来了解SDK提供的基本功能，如数据传输和语音输入
 * Step 2：阅读开发文档深入了解如何使用: http://developer.ticwear.com/doc/getting-started
 
 ## Android Wear开发者
