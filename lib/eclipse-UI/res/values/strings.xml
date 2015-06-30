@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- action name -->
+    <string name="action_reply">回复</string>
+    <string name="action_delete">删除</string>
+    <string name="action_detail">详情</string>
+    <string name="action_setting">设置</string>
+    <string name="action_open_on_phone">手机查看</string>
+    <string name="action_dail_phone">电话</string>
+    <string name="action_navigation">导航</string>
+    <string name="action_confirm">确认</string>
+    <string name="action_reset">重设</string>
+    <string name="are_you_sure">您确定吗？</string>
+    <string name="confirm_btn">确定键</string>
+    <string name="cancel_btn">取消键</string>
+</resources>

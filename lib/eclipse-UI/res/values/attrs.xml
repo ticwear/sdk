@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- =============================== -->
+<!-- RoundProgressBar class attributes -->
+<!-- =============================== -->
+<resources>
+
+    <declare-styleable name="RoundProgressBar">
+        <attr name="roundColor" format="color" />
+        <attr name="roundProgressColor" format="color" />
+        <attr name="roundWidth" format="dimension"></attr>
+        <attr name="textIsDisplayable" format="boolean"></attr>
+        <attr name="roundTextColor" format="color" />
+        <attr name="roundTextSize" format="dimension" />
+        <attr name="max" format="integer"></attr>
+        <attr name="startAngle" format="integer"></attr>
+        <attr name="roundStyle">
+            <enum name="STROKE" value="0"></enum>
+            <enum name="FILL" value="1"></enum>
+        </attr>
+    </declare-styleable>
+</resources>

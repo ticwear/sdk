@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="action_name_margin_bottom">8dp</dimen>
+    <dimen name="action_name_margin_top">5dp</dimen>
+    <dimen name="action_name_text_size">22sp</dimen>
+    <dimen name="confirm_dialog_button_diameter">58.50dip</dimen>
+
+    <!-- for confirm dialog -->
+    <dimen name="confirm_dialog_margin_circular">30dp</dimen>
+    <dimen name="confirm_dialog_title_size">20sp</dimen>
+    <dimen name="confirm_dialog_title_margin_top">40dp</dimen>
+    <dimen name="confirm_button_margin_bottom">44dp</dimen>
+    <dimen name="confirm_button_margin_left_right">46dp</dimen>
+
+    <!-- for ActionLayout -->
+    <dimen name="action_item_size_1">100dp</dimen>
+    <dimen name="action_item_size_2">80dp</dimen>
+    <dimen name="action_item_size_3">60dp</dimen>
+    <dimen name="action_item_size_4">60dp</dimen>
+    <dimen name="action_item_size_5">58dp</dimen>
+    <dimen name="not_action_item_size">48dp</dimen>
+    <dimen name="not_action_item_title_size">14sp</dimen>
+    <dimen name="action_item_icon_padding">4dp</dimen>
+
+    <!-- for indicators -->
+    <dimen name="indicator_size">3dp</dimen>
+    <dimen name="indicator_selected_current_size">4.5dp</dimen>
+    <dimen name="indicator_gap">3dp</dimen>
+
+</resources>

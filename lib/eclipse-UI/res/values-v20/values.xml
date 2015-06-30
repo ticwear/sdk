@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/usr/local/google/buildbot/repo_clients/https___googleplex-android.googlesource.com_a_platform_manifest.git/ub-wearable-common-bismuth/vendor/unbundled_google/libs/wearable/wearable-support/lib/src/main/res/values-v20/styles.xml -->
     <eat-comment/>
     <style name="CardText" parent="TextView.Small.Light">
         <item name="android:lineSpacingMultiplier">0.92</item>
@@ -42,27 +41,27 @@
         <item name="android:textColor">@color/primary_text_light</item>
     </style>
     <style name="TextView.Large" parent="@android:style/Widget.Holo.Light">
-        <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:fontFamily">sans-serif</item>
         <item name="android:textAppearance">@style/TextAppearance.Wearable.Large</item>
     </style>
     <style name="TextView.Large.Light">
-        <item name="android:fontFamily">sans-serif-condensed-light</item>
+        <item name="android:fontFamily">sans-serif-light</item>
         <item name="android:textAppearance">@style/TextAppearance.Wearable.Large</item>
     </style>
     <style name="TextView.Medium" parent="@android:style/Widget.Holo.Light">
-        <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:fontFamily">sans-serif</item>
         <item name="android:textAppearance">@style/TextAppearance.Wearable.Medium</item>
     </style>
     <style name="TextView.Medium.Light">
-        <item name="android:fontFamily">sans-serif-condensed-light</item>
+        <item name="android:fontFamily">sans-serif-light</item>
         <item name="android:textAppearance">@style/TextAppearance.Wearable.Medium</item>
     </style>
     <style name="TextView.Small" parent="@android:style/Widget.Holo.Light">
-        <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:fontFamily">sans-serif</item>
         <item name="android:textAppearance">@style/TextAppearance.Wearable.Small</item>
     </style>
     <style name="TextView.Small.Light">
-        <item name="android:fontFamily">sans-serif-condensed-light</item>
+        <item name="android:fontFamily">sans-serif-light</item>
         <item name="android:textAppearance">@style/TextAppearance.Wearable.Small</item>
     </style>
     <style name="Theme.Wearable" parent="@android:Theme.DeviceDefault.Light.NoActionBar"/>

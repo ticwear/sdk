@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="confirm_dialog_button_diameter">51dip</dimen>
+    <!-- for confirm dialog -->
+    <dimen name="confirm_dialog_margin_circular">26dp</dimen>
+    <dimen name="confirm_dialog_title_size">17sp</dimen>
+    <dimen name="confirm_dialog_title_margin_top">35dp</dimen>
+    <dimen name="confirm_button_margin_bottom">39dp</dimen>
+    <dimen name="confirm_button_margin_left_right">40dp</dimen>
+
+</resources>

@@ -3,4 +3,3 @@
   <item android:state_pressed="true" android:drawable="@drawable/card_frame_pressed"/>
   <item android:drawable="@drawable/card_frame"/>
 </selector>
-<!-- From: file:/usr/local/google/buildbot/repo_clients/https___googleplex-android.googlesource.com_a_platform_manifest.git/ub-wearable-common-bismuth/vendor/unbundled_google/libs/wearable/wearable-support/lib/src/main/res/drawable/card_background.xml -->
