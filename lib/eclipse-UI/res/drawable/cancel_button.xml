@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <layer-list>
+            <item>
+                <shape android:shape="oval">
+                    <size android:height="@dimen/confirm_dialog_button_diameter" android:width="@dimen/confirm_dialog_button_diameter" />
+
+                    <solid android:color="#ff838383" />
+                </shape>  
+             </item>
+            <item>
+                <bitmap android:gravity="center" android:src="@drawable/ic_cc_cancel" />
+            </item>
+        </layer-list>
+    </item>
+    <item>
+        <layer-list>
+            <item>
+                <shape android:shape="oval">
+                    <size android:height="@dimen/confirm_dialog_button_diameter" android:width="@dimen/confirm_dialog_button_diameter" />
+
+                    <solid android:color="#ffbbbbbb" />
+                </shape>  
+             </item>
+            <item>
+                <bitmap android:gravity="center" android:src="@drawable/ic_cc_cancel" />
+            </item>
+        </layer-list>
+    </item>
+</selector>

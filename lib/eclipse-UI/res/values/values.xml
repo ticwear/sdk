@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/usr/local/google/buildbot/repo_clients/https___googleplex-android.googlesource.com_a_platform_manifest.git/ub-wearable-common-bismuth/vendor/unbundled_google/libs/wearable/wearable-support/lib/src/main/res/values/color.xml -->
-    <eat-comment/>
+
+    <eat-comment />
+
     <color name="black">#000</color>
     <color name="blue">#2878ff</color>
     <color name="card_default_background">#E2E2E2</color>
@@ -21,15 +22,72 @@
     <color name="secondary_text_light">#A2A2A2</color>
     <color name="semitransparent_grey">#66777777</color>
     <color name="white">#FFFFFF</color>
-    <declare-styleable name="BoxInsetLayout_Layout"><attr name="layout_box"><flag name="left" value="0x01"/><flag name="top" value="0x02"/><flag name="right" value="0x04"/><flag name="bottom" value="0x08"/><flag name="all" value="0x0F"/></attr></declare-styleable>
-    <declare-styleable name="CircledImageView"><attr name="android:src"/><attr format="color" name="circle_color"/><attr format="dimension" name="circle_radius"/><attr format="dimension" name="circle_radius_pressed"/><attr format="dimension" name="circle_border_width"/><attr format="color" name="circle_border_color"/><attr format="dimension" name="circle_padding"/><attr format="dimension" name="shadow_width"/></declare-styleable>
-    <declare-styleable name="DelayedConfirmationView"><attr format="integer" name="update_interval"/></declare-styleable>
-    <declare-styleable name="DotsPageIndicator"><attr format="dimension" name="dotSpacing"/><attr format="dimension" name="dotRadius"/><attr format="dimension" name="dotRadiusSelected"/><attr format="color" name="dotColor"/><attr format="color" name="dotColorSelected"/><attr format="boolean" name="dotFadeWhenIdle"/><attr format="integer" name="dotFadeOutDelay"/><attr format="integer" name="dotFadeOutDuration"/><attr format="integer" name="dotFadeInDuration"/><attr format="color" name="dotShadowColor"/><attr format="dimension" name="dotShadowRadius"/><attr format="dimension" name="dotShadowDx"/><attr format="dimension" name="dotShadowDy"/></declare-styleable>
-    <declare-styleable name="WatchViewStub"><attr format="reference" name="rectLayout"/><attr format="reference" name="roundLayout"/></declare-styleable>
-    <declare-styleable name="WearableHeaderTextView"><attr name="circular_layout_gravity"><flag name="left" value="0x03"/><flag name="top" value="0x30"/><flag name="right" value="0x05"/><flag name="bottom" value="0x50"/><flag name="center_vertical" value="0x10"/><flag name="center_horizontal" value="0x01"/><flag name="center" value="0x11"/></attr><attr format="dimension" name="circular_text_size"/></declare-styleable>
-    <!-- From: file:/usr/local/google/buildbot/repo_clients/https___googleplex-android.googlesource.com_a_platform_manifest.git/ub-wearable-common-bismuth/vendor/unbundled_google/libs/wearable/wearable-support/lib/src/main/res/values/dimens.xml -->
-    <eat-comment/>
+
+    <declare-styleable name="BoxInsetLayout_Layout">
+        <attr name="layout_box">
+            <flag name="left" value="0x01" />
+            <flag name="top" value="0x02" />
+            <flag name="right" value="0x04" />
+            <flag name="bottom" value="0x08" />
+            <flag name="all" value="0x0F" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="CircledImageView">
+        <attr name="android:src" />
+        <attr name="circle_color" format="color" />
+        <attr name="circle_radius" format="dimension" />
+        <attr name="circle_radius_pressed" format="dimension" />
+        <attr name="circle_border_width" format="dimension" />
+        <attr name="circle_border_color" format="color" />
+        <attr name="circle_padding" format="dimension" />
+        <attr name="shadow_width" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="DelayedConfirmationView">
+        <attr name="update_interval" format="integer" />
+    </declare-styleable>
+    <declare-styleable name="DotsPageIndicator">
+        <attr name="dotSpacing" format="dimension" />
+        <attr name="dotRadius" format="dimension" />
+        <attr name="dotRadiusSelected" format="dimension" />
+        <attr name="dotColor" format="color" />
+        <attr name="dotColorSelected" format="color" />
+        <attr name="dotFadeWhenIdle" format="boolean" />
+        <attr name="dotFadeOutDelay" format="integer" />
+        <attr name="dotFadeOutDuration" format="integer" />
+        <attr name="dotFadeInDuration" format="integer" />
+        <attr name="dotShadowColor" format="color" />
+        <attr name="dotShadowRadius" format="dimension" />
+        <attr name="dotShadowDx" format="dimension" />
+        <attr name="dotShadowDy" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="WatchViewStub">
+        <attr name="rectLayout" format="reference" />
+        <attr name="roundLayout" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="WearableHeaderTextView">
+        <attr name="circular_layout_gravity">
+            <flag name="left" value="0x03" />
+            <flag name="top" value="0x30" />
+            <flag name="right" value="0x05" />
+            <flag name="bottom" value="0x50" />
+            <flag name="center_vertical" value="0x10" />
+            <flag name="center_horizontal" value="0x01" />
+            <flag name="center" value="0x11" />
+        </attr>
+        <attr name="circular_text_size" format="dimension" />
+    </declare-styleable>
+
+    <eat-comment />
+
     <dimen name="card_content_padding_rect_top">4dp</dimen>
     <dimen name="close_button_diameter">104dp</dimen>
     <dimen name="dismiss_padding">16dp</dimen>
+
+    <declare-styleable name="ToggleButtonLayout">
+        <attr name="background_color" format="color" />
+        <attr name="button_color" format="color" />
+        <attr name="radius_x" format="dimension" />
+        <attr name="radius_y" format="dimension" />
+    </declare-styleable>
+
 </resources>

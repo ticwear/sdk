@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="bg_white">#ffffff</color>
+    <color name="action_name_black">#646464</color>
+    <color name="action_name_white">#ffffff</color>
+    <color name="success_text_color">#1ccf70</color>
+    <color name="text_color_red">#ff5151</color>
+    <color name="text_color_black">#666666</color>
+    <color name="progress_color">#e0999999</color>
+    <color name="progress_bg_color">#50999999</color>
+    <color name="round_scroll_progress_color">#ff0098e6</color>
+    <color name="round_scroll_progress_bg_color">#66666666</color>
+    <color name="cw_dark_gray">#ff434343</color>
+    <color name="toggle_button_background_color">#393e42</color>
+    <color name="toggle_button_button_color">#1a8ced</color>
+    <color name="indicator_selected_color">#FF9C9C9C</color>
+    <color name="indicator_unselected_color">#7F9C9C9C</color>
+
+</resources>
