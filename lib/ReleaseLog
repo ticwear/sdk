@@ -1,3 +1,7 @@
+===================================
+Ticwear Developer SDK Release Log
+===================================
+
 Release 2015-07-27
   * Notes
-    - Add speech synthesizer api to mobvoi-api.jar
+    - Add speech synthesizer (TTS) API to mobvoi-api.jar
