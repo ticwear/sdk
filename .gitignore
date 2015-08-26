@@ -1,2 +1,5 @@
 .DS_Store
 *~
+/sample/android-studio/DataLayer/.idea
+/sample/android-studio/DataLayer/**/*.iml
+/sample/android-studio/DataLayer/**/build

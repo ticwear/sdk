@@ -8,7 +8,7 @@ buildscript {
         classpath 'com.android.tools.build:gradle:1.2.3'
 
         // 将Ticwear打包插件添加到classpath
-        classpath 'com.ticwear.tools.build:gradle:1.0.0'
+        classpath 'com.ticwear.tools.build:gradle:1.1.0'
     }
 }
 

@@ -6,15 +6,14 @@
 1. 使用AndroidStudio创建应用，同时选中Phone和Wear平台；
 
 2. 在应用根目录的build.gradle文件中添加Ticwear打包插件：
-   classpath 'com.ticwear.tools.build:gradle:1.0.0'
+   classpath 'com.ticwear.tools.build:gradle:1.1.0'
 
 3. 在mobile/build.gradle文件中引用Ticwear打包插件：
    apply plugin: 'com.ticwear.application'
 
-4. 在mobile/build.gradle和wear/build.gradle文件中添加MobvoiAPI依赖（用于手机和手表数据传输）
-   compile 'com.mobvoi.api:library:1.0.0'
+4. 拷贝mobvoi-api.jar到工程中（用于手机和手表数据传输）
 
-5. 在mobile/build.gradle和wear/build.gradle中删掉对gms的依赖（MobvoiAPI已经集成了gms）
+5. 如果不需要兼容原生android wear的话，移除gms的依赖
    // compile 'com.google.android.gms:play-services:7.3.0'
 
 6. 开发app的功能代码；
