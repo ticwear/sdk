@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">StepAndWeatherDemo</string>
+    <string name="step_count">步数:</string>
+    <string name="step_demo">计步Demo</string>
+    <string name="weather_demo">天气Demo</string>
+
+</resources>
