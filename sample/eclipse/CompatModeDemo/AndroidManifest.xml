@@ -20,6 +20,8 @@
             </intent-filter>
         </service>  -->
 
+        <meta-data android:name="com.google.android.wearable.beta.app" android:resource="@xml/wearable_app_desc"/>
+        <meta-data android:name="com.mobvoi.ticwear.app" android:resource="@xml/wearable_app_desc"/>
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="6587000" />
