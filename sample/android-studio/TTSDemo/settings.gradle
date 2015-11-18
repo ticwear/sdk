@@ -1,0 +1,4 @@
+include ':app'
+
+include ':MobvoiAPI'
+project(':MobvoiAPI').projectDir=new File('../MobvoiAPI')
