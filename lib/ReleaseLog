@@ -5,3 +5,7 @@ Ticwear Developer SDK Release Log
 Release 2015-07-27
   * Notes
     - Add speech synthesizer (TTS) API to mobvoi-api.jar
+
+Release 2015-09-07
+  * Notes
+    - Add release() function to GetFdForAssetResult.

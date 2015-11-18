@@ -11,10 +11,11 @@
 * Step 2：阅读开发文档深入了解如何使用: http://developer.ticwear.com/doc/getting-started
 
 ## Android Wear开发者
-您可以很快将自己的应用移植到Ticwear平台，请参考Android Wear项目迁移文档：  
+Android Wear应用目前分为国际版和中国版，中国版的应用需要使用裁剪版的SDK（在文件夹android-wear-lib中可以找到）。
+关于如何开发一个中国版的Android Wear应用，并将此应用移植到Ticwear平台，请参考Android Wear应用兼容文档：  
 http://developer.ticwear.com/doc/gms-compat
 
-如果您想让您的应用同时兼容Android Wear和Ticwear，请采用如下步骤
+如果您想让您的应用同时兼容Android Wear（国际版或中国版）和Ticwear，请采用如下步骤
 * 引入mobvoi-api.jar，同时保留google-play-services.jar
 * 将代码中的Google Mobile Services (GMS) API替换为仅包名不同的Mobvoi Mobile Services (MMS) API，GoogleApiClient替换为MobvoiApiClient。在AndroidManifest.xml里面把com.google.android.gms.wearable.BIND_LISTENER替换为com.mobvoi.android.wearable.BIND_LISTENER
 * 在App启动时调用MobvoiApiManager.getInstance().adaptService(context)，该方法必须在任何可能的API调用操作前调用，它将会自动探测当前系统情况，选择底层是使用MMS或GMS。如果想自己决定使用哪种API，可以通过调用MobvoiApiManager.getInstance().loadService(context, group)来指定使用Ticwear或Android Wear的API，以取代上面的adaptService方法。如果这两个方法都没有被调用，API会变成仅Ticwear系统能使用的方式。
