@@ -1,7 +1,5 @@
 package com.mobvoi.android.test;
 
-import java.io.InputStream;
-
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -17,7 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mobvoi.android.common.MobvoiApiManager;
-import com.mobvoi.android.common.NoAvaliableServiceException;
+import com.mobvoi.android.common.NoAvailableServiceException;
 import com.mobvoi.android.common.api.MobvoiApiClient;
 import com.mobvoi.android.common.api.MobvoiApiClient.ConnectionCallbacks;
 import com.mobvoi.android.common.api.ResultCallback;
@@ -28,6 +26,8 @@ import com.mobvoi.android.wearable.DataItemAsset;
 import com.mobvoi.android.wearable.MessageApi.SendMessageResult;
 import com.mobvoi.android.wearable.PutDataRequest;
 import com.mobvoi.android.wearable.Wearable;
+
+import java.io.InputStream;
 
 public class FunctionTestActivity extends Activity {
     
@@ -110,7 +110,7 @@ public class FunctionTestActivity extends Activity {
         if (!MobvoiApiManager.getInstance().isInitialized()) {
             try {
                 MobvoiApiManager.getInstance().adaptService(this);
-            } catch (NoAvaliableServiceException e) {
+            } catch (NoAvailableServiceException e) {
                 Log.e(TAG, "no avaliable service.", e);
                 Toast.makeText(this, "neither mms nor gms is avaliable.", Toast.LENGTH_SHORT).show();
                 return ;

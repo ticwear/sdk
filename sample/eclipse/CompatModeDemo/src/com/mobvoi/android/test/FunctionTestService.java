@@ -1,12 +1,10 @@
 //Copyright 2015 Mobvoi Inc. All Rights Reserved
 package com.mobvoi.android.test;
 
-import java.io.InputStream;
-
 import android.util.Log;
 
 import com.mobvoi.android.common.MobvoiApiManager;
-import com.mobvoi.android.common.NoAvaliableServiceException;
+import com.mobvoi.android.common.NoAvailableServiceException;
 import com.mobvoi.android.common.api.MobvoiApiClient;
 import com.mobvoi.android.common.api.ResultCallback;
 import com.mobvoi.android.wearable.DataApi;
@@ -19,6 +17,8 @@ import com.mobvoi.android.wearable.MessageEvent;
 import com.mobvoi.android.wearable.Wearable;
 import com.mobvoi.android.wearable.WearableListenerService;
 
+import java.io.InputStream;
+
 public class FunctionTestService extends WearableListenerService {
     
     private MobvoiApiClient client;
@@ -29,7 +29,7 @@ public class FunctionTestService extends WearableListenerService {
         if (!MobvoiApiManager.getInstance().isInitialized()) {
             try {
                 MobvoiApiManager.getInstance().adaptService(this);
-            } catch (NoAvaliableServiceException e) {
+            } catch (NoAvailableServiceException e) {
                 Log.w(FunctionTestActivity.TAG, "no avaliable service.", e);
             }
         }
