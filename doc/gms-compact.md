@@ -73,7 +73,7 @@ Mobvoi API (MMS)、 Google Play Service (GMS) 和 Google Play Service Standalone
 #### 自适应兼容模式
 
 1. 引入[mobvoi-api.jar][mobvoi-jar]，同时添加或保留[google-play-services][gms-jar]。
-    注：建议使用 Android Studio 环境。如果是Eclipse用户，需手动添加 `Google Play Services` 的meta-data，详见：[Setting Up Google Play Services][gms-jar]
+    注：建议使用 Android Studio 环境。如果是Eclipse用户，需手动添加 `Google Play Services` 的 meta-data 和 jar包，详见：[Setting Up Google Play Services][gms-jar]，或者参考我们的 [Eclipse sample code][demo-compact]
 2. 使用 Mobvoi API。如果你已经有AW的代码，可以通过下面的步骤来切换：
     1. 将代码中的Google Mobile Services (GMS) API替换为仅包名不同的Mobvoi Mobile Services (MMS) API
     2. 将 `GoogleApiClient` 替换为 `MobvoiApiClient`。
@@ -99,7 +99,7 @@ Mobvoi API (MMS)、 Google Play Service (GMS) 和 Google Play Service Standalone
 
 这种方式的优点是当Apk不需要支持Android Wear运行环境时，可以无需引入Google Play Services包。
 
-1. 将项目引用的[`google-play-services.jar`][gms-jar]从项目中移除，引入[`mobvoi-api.jar`][mobvoi-jar]。
+1. 将项目引用的[`google-play-services`][gms-jar]从项目中移除，引入[`mobvoi-api.jar`][mobvoi-jar]。
 2. 使用 Mobvoi API。如果你已经有AW的代码，可以通过下面的步骤来切换：
     1. 将代码中的Google Mobile Services (GMS) API替换为仅包名不同的Mobvoi Mobile Services (MMS) API
     2. 将 `GoogleApiClient` 替换为 `MobvoiApiClient`。
@@ -112,7 +112,7 @@ Mobvoi API (MMS)、 Google Play Service (GMS) 和 Google Play Service Standalone
 
 使用这种方法需要下载专用的替换SDK(mobvoi-api-gms-replaceable.jar)在项目中引用，而不是引用mobvoi-api.jar。[点此下载][mobvoi-replace]专用SDK。
 
-1. 将项目引用的[`google-play-services.jar`][gms-jar]从项目中移除，引入[`mobvoi-api-gms-replaceable.jar`][mobvoi-replace]。
+1. 将项目引用的[`google-play-services`][gms-jar]从项目中移除，引入[`mobvoi-api-gms-replaceable.jar`][mobvoi-replace]。
 2. 重新编译打包。
 
 
@@ -136,7 +136,7 @@ Mobvoi API (MMS)、 Google Play Service (GMS) 和 Google Play Service Standalone
         }
         ```
 
-    2. 方法二，添加到 Android SDK 代码库。将下载的 `wearable-api-client-repository.zip` 文件解压，再将解压出来的 `m2repository` 覆盖（合并）到 **Android SDK** 目录中，保证合并以后的目录结构为：
+    2. 方法二，添加到 Android SDK 代码库。（这种方法不需要添加额外的maven库依赖，但可能在更新 Android SDK 时被删除，请注意备份）。将下载的 `wearable-api-client-repository.zip` 文件解压，再将解压出来的 `m2repository` 覆盖（合并）到 **Android SDK** 目录中，保证合并以后的目录结构为：
 
         ```
         ${Android-sdk}/extras/google/m2repository/com/google/android/wearable/play-services-wearable-standalone/

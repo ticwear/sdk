@@ -24,7 +24,7 @@
         <meta-data android:name="com.mobvoi.ticwear.app" android:resource="@xml/wearable_app_desc"/>
         <meta-data
             android:name="com.google.android.gms.version"
-            android:value="6587000" />
+            android:value="7327000" />
 
         <activity
             android:name=".FunctionTestActivity"
@@ -34,13 +34,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
+
         <service android:name=".FunctionTestService" >
             <intent-filter>
                 <action android:name="com.mobvoi.android.wearable.BIND_LISTENER" />
             </intent-filter>
         </service>
-        
+
         <service android:name="com.mobvoi.android.wearable.WearableListenerServiceGoogleImpl">
             <intent-filter>
                 <action android:name="com.google.android.gms.wearable.BIND_LISTENER" />
