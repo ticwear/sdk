@@ -78,7 +78,7 @@ Mobvoi API (MMS)、 Google Play Service (GMS) 和 Google Play Service Standalone
     1. 将代码中的Google Mobile Services (GMS) API替换为仅包名不同的Mobvoi Mobile Services (MMS) API
     2. 将 `GoogleApiClient` 替换为 `MobvoiApiClient`。
     3. 如果使用了WearableListenerService，在 `AndroidManifest.xml` 里面把 `com.google.android.gms.wearable.BIND_LISTENER` 替换为 `com.mobvoi.android.wearable.BIND_LISTENER`。
-3. 在App启动时调用 `MobvoiApiManager.getInstance().adaptService(context)`， 该方法必须在任何可能的API调用操作前调用，它将会自动探测当前系统情况，选择底层是使用MMS或GMS。如果想自己决定使用哪种API，可以通过调用 `MobvoiApiManager.getInstance().loadService(context, group)` 来指定使用Ticwear或Android Wear的API，以取代上面的 `adaptService` 方法。如果这两个方法都没有被调用，API会变成仅Ticwear系统能使用的方式。
+3. 在手机、手表App启动时调用 `MobvoiApiManager.getInstance().adaptService(context)`， 该方法必须在任何可能的API调用操作前调用，它将会自动探测当前系统情况，选择底层是使用MMS或GMS。如果想自己决定使用哪种API，可以通过调用 `MobvoiApiManager.getInstance().loadService(context, group)` 来指定使用Ticwear或Android Wear的API，以取代上面的 `adaptService` 方法。如果这两个方法都没有被调用，API会变成仅Ticwear系统能使用的方式。
 4. 如果使用了WearableListenerService，在AndroidManifest.xml中注册GMS Wearable Listener Service的代理服务：
 
     ``` xml
