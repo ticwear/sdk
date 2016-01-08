@@ -73,7 +73,7 @@ Mobvoi API (MMS)、 Google Play Service (GMS) 和 Google Play Service Standalone
 #### 自适应兼容模式
 
 1. 引入[mobvoi-api.jar][mobvoi-jar]，同时添加或保留[google-play-services][gms-jar]。
-    注：建议使用 Android Studio 环境。如果是Eclipse用户，需手动添加 `Google Play Services` 的 meta-data 和 jar包，详见：[Setting Up Google Play Services][gms-jar]，或者参考我们的 [Eclipse sample code][demo-compact]
+    注：建议使用 Android Studio 环境。如果是Eclipse用户，需手动添加 `Google Play Services` 的 meta-data 和 jar包，详见：[Setting Up Google Play Services][gms-jar]，或者参考我们的 Sample code ([Eclipse][demo-compact-eclipse]/[Android Studio][demo-compact-as])
 2. 使用 Mobvoi API。如果你已经有AW的代码，可以通过下面的步骤来切换：
     1. 将代码中的Google Mobile Services (GMS) API替换为仅包名不同的Mobvoi Mobile Services (MMS) API
     2. 将 `GoogleApiClient` 替换为 `MobvoiApiClient`。
@@ -93,7 +93,7 @@ Mobvoi API (MMS)、 Google Play Service (GMS) 和 Google Play Service Standalone
 
 5. 重新编译打包。
 
-可以参看Github开源项目中[兼容模式][demo-compact]的使用样例。
+可以参看Github开源项目中兼容模式 ([Eclipse][demo-compact-eclipse]/[Android Studio][demo-compact-as])的使用样例。
 
 #### 仅Ticwear运行方式
 
@@ -206,4 +206,6 @@ Mobvoi API (MMS)、 Google Play Service (GMS) 和 Google Play Service Standalone
 [mobvoi-replace]: https://github.com/ticwear/sdk/raw/master/lib/mobvoi-api-gms-replaceable.jar
 [gms-jar]: https://developers.google.com/android/guides/setup
 [awc-sdk]: https://github.com/ticwear/sdk/raw/master/android-wear-lib/wearable-api-client-repository.zip
-[demo-compact]: https://github.com/ticwear/sdk/tree/master/sample/eclipse/CompatModeDemo
+[demo-compact-eclipse]: https://github.com/ticwear/sdk/tree/master/sample/eclipse/CompatModeDemo
+[demo-compact-as]: https://github.com/ticwear/sdk/tree/master/sample/android-studio/CompatModeDemo
+
