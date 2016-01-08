@@ -118,7 +118,7 @@ Mobvoi API (MMS)、 Google Play Service (GMS) 和 Google Play Service Standalone
 
 ### AW中国版的通讯兼容
 
-国际版的 Android Wear 应用无法直接在中国版 Android Wear 手表操作系统上通讯。包含通讯功能的AW应用开发者需要更换手机端依赖的GMS库才能与中国版的 Android Wear 应用通讯，但不需要改任何代码（包括混淆配置等都保持与[`GMS`][gms-jar]一致）。手表端的应用仍需使用原来的GMS。
+国际版的 Android Wear 应用无法直接在中国版 Android Wear 手表操作系统上通讯。包含通讯功能的AW应用需要更换手机端依赖的GMS库才能在中国版 Android Wear 系统上通讯，但不需要改任何代码（包括混淆配置等都保持与[`GMS`][gms-jar]一致）。手表端的应用仍需使用原来的GMS。
 
 打包中国版Android Wear应用需要进行以下四个步骤：
 
