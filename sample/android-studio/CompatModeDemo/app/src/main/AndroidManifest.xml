@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mobvoi.android.test"
-    android:versionCode="1"
-    android:versionName="1.0" >
+    package="com.mobvoi.android.test" >
 
     <!-- If you got "No, missing uses-feature watch" when install on watch, open this feature -->
     <!--<uses-feature android:name="android.hardware.type.watch" />-->
-
-    <uses-sdk
-        android:minSdkVersion="17"
-        android:targetSdkVersion="21" />
 
     <application
         android:name=".BaseApplication"
@@ -17,10 +11,6 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="7327000" />
 
         <activity
             android:name=".FunctionTestActivity"
