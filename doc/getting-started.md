@@ -22,8 +22,8 @@
 
 2. 在Form factors窗口:
 
-    - 选择Phone and Tablet并选择API 18: Android 4.3 (Jelly Bean) 作为Minimum SDK。
-    - 选择Wear并选择API 20: Android 4.4 (KitKat Wear) 作为Minimum SDK。
+    1. 选择Phone and Tablet并选择API 18: Android 4.3 (Jelly Bean) 作为Minimum SDK。
+    2. 选择Wear并选择API 20: Android 4.4 (KitKat Wear) 作为Minimum SDK。
 
 3. 在第一个Add an activity to Mobile窗口，为手机移动设备添加一个空白Activity。
 
