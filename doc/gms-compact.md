@@ -73,12 +73,27 @@ Mobvoi API (MMS)、 Google Play Service (GMS) 和 Google Play Service Standalone
 #### 自适应兼容模式
 
 1. 引入[mobvoi-api.jar][mobvoi-jar]，同时添加或保留[google-play-services][gms-jar]。
-    注：建议使用 Android Studio 环境。如果是Eclipse用户，需手动添加 `Google Play Services` 的 meta-data 和 jar包，详见：[Setting Up Google Play Services][gms-jar]，或者参考我们的 Sample code ([Eclipse][demo-compact-eclipse]/[Android Studio][demo-compact-as])
+
+    * 注1：建议使用 Android Studio 环境。如果是Eclipse用户，需手动添加 `Google Play Services` 的 meta-data 和 jar包，详见：[Setting Up Google Play Services][gms-jar]。
+    * 注2：我们提供了兼容模式的 Sample code ([Eclipse][demo-compact-eclipse]/[Android Studio][demo-compact-as]) 供参考
+    * 注3：目前我们仅测试支持了 `7.3.0` 和 `7.5.0` 版本，其他版本可能会出现兼容性问题。
+
 2. 使用 Mobvoi API。如果你已经有AW的代码，可以通过下面的步骤来切换：
     1. 将代码中的Google Mobile Services (GMS) API替换为仅包名不同的Mobvoi Mobile Services (MMS) API
     2. 将 `GoogleApiClient` 替换为 `MobvoiApiClient`。
     3. 如果使用了WearableListenerService，在 `AndroidManifest.xml` 里面把 `com.google.android.gms.wearable.BIND_LISTENER` 替换为 `com.mobvoi.android.wearable.BIND_LISTENER`。
-3. 在手机、手表App启动时调用 `MobvoiApiManager.getInstance().adaptService(context)`， 该方法必须在任何可能的API调用操作前调用，它将会自动探测当前系统情况，选择底层是使用MMS或GMS。如果想自己决定使用哪种API，可以通过调用 `MobvoiApiManager.getInstance().loadService(context, group)` 来指定使用Ticwear或Android Wear的API，以取代上面的 `adaptService` 方法。如果这两个方法都没有被调用，API会变成仅Ticwear系统能使用的方式。
+3. 在手机、手表App启动时，都需要调用 `MobvoiApiManager.getInstance().adaptService(context)`， 该方法必须在任何可能的API调用操作前调用（建议在Application.onCreate中调用），它将会自动探测当前系统情况，选择底层是使用MMS或GMS。如果想自己决定使用哪种API，可以通过调用 `MobvoiApiManager.getInstance().loadService(context, group)` 来指定使用Ticwear或Android Wear的API，以取代上面的 `adaptService` 方法。如果这两个方法都没有被调用，API会变成仅Ticwear系统能使用的方式。调用形式如下：
+
+    ``` Java
+    if (!MobvoiApiManager.getInstance().isInitialized()) {
+        try {
+            MobvoiApiManager.getInstance().adaptService(this);
+        } catch (NoAvailableServiceException e) {
+            Log.e(TAG, "no avaliable service.", e);
+            return;
+        }
+    }
+    ```
 4. 如果使用了WearableListenerService，在AndroidManifest.xml中注册GMS Wearable Listener Service的代理服务：
 
     ``` xml
