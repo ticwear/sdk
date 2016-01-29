@@ -98,8 +98,15 @@
 
 7. 最后得到的手机端APK即为符合要求可以上传应用商店的应用。
 
-另外，也可以使用Android Studio对一般可穿戴应用的打包方法进行自动打包。但是需要手动添加以上步骤5中的Ticwear声明标识。
+### 混淆配置
 
+如果你对应用进行了混淆，请在包含有 Mobvoi API 的应用中添加如下配置：
+
+``` Proguard
+-keep class * implements android.os.Parcelable {
+  public static final android.os.Parcelable$Creator *;
+}
+```
 
 ### WiFi调试
 
