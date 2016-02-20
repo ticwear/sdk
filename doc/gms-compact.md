@@ -60,7 +60,7 @@
 
 在 Ticwear 上进行通讯，需要使用 Mobvoi SDK，利用 MMS 通讯。Mobvoi SDK 实现了 Google Play Services (GMS) 中手表和手机之间数据传输的接口，包含Node API、Message API和Data API的全部功能。Mobvoi SDK 的接口名称、方法名以及语意与 Android Wear 的实现完全一致。
 
-在AW国际版上通讯，需要使用GMS，在AW中国版上通讯，需要使用 GMS standalone。
+在AW国际版上通讯，需要使用GMS，在AW中国版上通讯，需要使用[特定的 GMS](#aw中国版的通讯兼容)。
 
 Mobvoi API (MMS)、 Google Play Service (GMS) 和 Google Play Service Standalone 之间的关系见下图：
 
@@ -72,13 +72,13 @@ Mobvoi API (MMS)、 Google Play Service (GMS) 和 Google Play Service Standalone
 
 #### 自适应兼容模式
 
-1. 引入[mobvoi-api.jar][mobvoi-jar]，同时添加或保留[google-play-services][gms-jar]。
+1. 引入[mobvoi-api.jar][mobvoi-jar]，同时添加或保留[google-play-services][gms-jar]（AW中国版需使用[特定的 GMS](#aw中国版的通讯兼容)）。
 
     * 注1：建议使用 Android Studio 环境。如果是Eclipse用户，需手动添加 `Google Play Services` 的 meta-data 和 jar包，详见：[Setting Up Google Play Services][gms-jar]。
     * 注2：我们提供了兼容模式的 Sample code ([Eclipse][demo-compact-eclipse]/[Android Studio][demo-compact-as]) 供参考
     * 注3：目前我们仅测试支持了 `7.3.0` 和 `7.5.0` 版本，其他版本可能会出现兼容性问题。
 
-2. 使用 Mobvoi API。如果你已经有AW的代码，可以通过下面的步骤来切换：
+2. 使用 Mobvoi API。详情参考[快速入门][ticwear-dev]。如果你已经有AW的代码，可以通过下面的步骤来切换：
     1. 将代码中的Google Mobile Services (GMS) API替换为仅包名不同的Mobvoi Mobile Services (MMS) API
     2. 将 `GoogleApiClient` 替换为 `MobvoiApiClient`。
     3. 如果使用了WearableListenerService，在 `AndroidManifest.xml` 里面把 `com.google.android.gms.wearable.BIND_LISTENER` 替换为 `com.mobvoi.android.wearable.BIND_LISTENER`。
@@ -114,7 +114,7 @@ Mobvoi API (MMS)、 Google Play Service (GMS) 和 Google Play Service Standalone
 
 这种方式的优点是当Apk不需要支持Android Wear运行环境时，可以无需引入Google Play Services包。
 
-1. 将项目引用的[`google-play-services`][gms-jar]从项目中移除，引入[`mobvoi-api.jar`][mobvoi-jar]。
+1. 将项目引用的`google-play-services`从项目中移除，引入[`mobvoi-api.jar`][mobvoi-jar]。
 2. 使用 Mobvoi API。如果你已经有AW的代码，可以通过下面的步骤来切换：
     1. 将代码中的Google Mobile Services (GMS) API替换为仅包名不同的Mobvoi Mobile Services (MMS) API
     2. 将 `GoogleApiClient` 替换为 `MobvoiApiClient`。
@@ -133,74 +133,42 @@ Mobvoi API (MMS)、 Google Play Service (GMS) 和 Google Play Service Standalone
 
 ### AW中国版的通讯兼容
 
-国际版的 Android Wear 应用无法直接在中国版 Android Wear 手表操作系统上通讯。包含通讯功能的AW应用需要更换手机端依赖的GMS库才能在中国版 Android Wear 系统上通讯，但不需要改任何代码（包括混淆配置等都保持与[`GMS`][gms-jar]一致）。手表端的应用仍需使用原来的GMS。
+国际版的 Android Wear 应用无法直接在中国版 Android Wear 手表操作系统上通讯。包含通讯功能的AW应用需要更换手机、手表端依赖的GMS库才能在中国版 Android Wear 系统上通讯，但不需要改任何代码（包括混淆配置等都保持与[`GMS`][gms-jar]一致）。详情可参看[英文官方文档][awc-doc]，或者参考我们的 [CompatModeChinaDemo][demo-compact-china]。
 
 打包中国版Android Wear应用需要进行以下四个步骤：
 
-1. 配置 Android Wear SDK 的仓库。由于 Android Wear 官方还未提供中国版的SDK自动下载，开发者可以暂时使用我们提供的[中国版 Android Wear SDK][awc-sdk]，手动配置代码仓库。
-    1. 方法一，增加本地代码库。将下载的 `wearable-api-client-repository.zip` 文件解压到某个文件目录下，例如 `/home/wearable/`，在 Android Studio 的顶级project的 `build.gradle` 中添加这个m2repository目录。
-
-        ``` gradle
-        allprojects {
-          repositories {
-            // ... other repositories may go here
-            maven {
-              url '/home/wearable/m2repository'
-            }
-          }
-        }
-        ```
-
-    2. 方法二，添加到 Android SDK 代码库。（这种方法不需要添加额外的maven库依赖，但可能在更新 Android SDK 时被删除，请注意备份）。将下载的 `wearable-api-client-repository.zip` 文件解压，再将解压出来的 `m2repository` 覆盖（合并）到 **Android SDK** 目录中，保证合并以后的目录结构为：
-
-        ```
-        ${Android-sdk}/extras/google/m2repository/com/google/android/wearable/play-services-wearable-standalone/
-        ```
-
-2. 更新手机端apk使用的client库。官方只提供 Android Studio （基于Gradle） 打包方式。在build.gradle文件中将依赖
+1. 下载[中国版 Android Wear SDK][awc-sdk]到本地，文件名为 `google-play-services-7-8-87.zip`。
+2. 创建本地Maven仓库。将下载的文件解压到工程根目录下。
+3. 在项目根目录的 `build.gradle` 中添加这个Maven仓库的依赖。
 
     ``` gradle
-    compile 'com.google.android.gms:play-services:7.5.0'
+    allprojects {
+      repositories {
+        // ... other repositories may go here
+        maven {
+          url "${rootProject.projectDir}/google-play-services-7-8-87"
+        }
+      }
+    }
+    ```
+
+4. 更新手机、手表两端的APK使用的 gms client 库。在 APK module的build.gradle文件中将依赖
+
+    ``` gradle
+    compile 'com.google.android.gms:play-services-wearable:{$gmsVersion}'
     ```
 
     替换为新添加的库
 
     ``` gradle
-    compile 'com.google.android.wearable:play-services-wearable-standalone:7.5.0'
+    compile 'com.google.android.gms:play-services-wearable:7.8.87'
     ```
+    
+    注意，版本号只能是 `7.8.87`。
 
-3. 手表端apk使用的client库不用变，仍然依赖
+5. 使用 Android Studio 打包应用然后在装有中国版 Android Wear 助手的手机上部署即可。
 
-    ``` gradle
-    'com.google.android.gms:play-services-wearable'
-    ```
-
-4. 使用 Android Studio 打包应用然后在装有中国版 Android Wear 助手的手机上部署即可。
-
-若你的手表端和手机端有一个公用的库依赖 Wearable API 的话，需要进行一些额外的配置。
-
-1. 保证公用模块依赖中国版的client库，在公用模块的build.gradle中改成如下代码：
-
-    ``` gradle
-    dependencies {
-      // ..
-      compile 'com.google.android.wearable:play-services-wearable-standalone:7.5.0'
-    }
-    ```
-
-2. 更新手表端的build.gradle。将对公用模块的依赖修改如下：
-
-    ``` gradle
-    dependencies {
-      // ...
-      compile (project(':common')) {
-        exclude module: 'play-services-wearable-standalone'
-      }
-      compile 'com.google.android.gms:play-services-wearable:7.5.0'
-    }
-    ```
-
-3. 手机端的build.gradle正常依赖公用模块。
+这样配置以后，你的应用将同时支持 Android Wear 国际版手表和 Android Wear 中国版手表。
 
 ### 如何使用语音语义等特殊API
 
@@ -219,9 +187,9 @@ Mobvoi API (MMS)、 Google Play Service (GMS) 和 Google Play Service Standalone
 - 如果出现 `java.lang.IncompatibleClassChangeError: The method 'void com.google.android.gms.common.api.GoogleApiClient.connect()' was expected to be of type interface but instead was found to be of type virtual`。可能是以下原因：
 
   1. adaptService调用顺序错误，建议放到Application的onCreate中调用。
-  2. GMS版本太高，8.1.0以上版本修改了实现方式，MobvoiAPI不支持。建议使用经过测试的 7.3.0 和 7.5.0 版本。
+  2. GMS版本太高，8.1.0以上版本修改了实现方式，MobvoiAPI不支持。建议使用经过测试的 7.3.0 ~ 7.8.0 版本。
 
-- 如果出现找不到 `isNearby` 方法。可能是 GMS版本太低。建议使用经过测试的 7.3.0 和 7.5.0 版本。
+- 如果出现找不到 `isNearby` 方法。可能是 GMS版本太低。建议使用经过测试的 7.3.0 ~ 7.8.0 版本。
 
 ### 手表或手机接收不到消息
 
@@ -240,7 +208,9 @@ Mobvoi API (MMS)、 Google Play Service (GMS) 和 Google Play Service Standalone
 [mobvoi-jar]: https://github.com/ticwear/sdk/raw/master/lib/mobvoi-api.jar
 [mobvoi-replace]: https://github.com/ticwear/sdk/raw/master/lib/mobvoi-api-gms-replaceable.jar
 [gms-jar]: https://developers.google.com/android/guides/setup
-[awc-sdk]: https://github.com/ticwear/sdk/raw/master/android-wear-lib/wearable-api-client-repository.zip
+[awc-sdk]: https://github.com/ticwear/sdk/raw/master/android-wear-lib/google-play-services-7-8-87.zip
+[awc-doc]: http://developer.android.com/intl/es/training/wearables/apps/creating-app-china.html
 [demo-compact-eclipse]: https://github.com/ticwear/sdk/tree/master/sample/eclipse/CompatModeDemo
 [demo-compact-as]: https://github.com/ticwear/sdk/tree/master/sample/android-studio/CompatModeDemo
+[demo-compact-china]: https://github.com/ticwear/sdk/tree/master/sample/android-studio/CompatModeChinaDemo
 
