@@ -216,16 +216,20 @@ Mobvoi API (MMS)、 Google Play Service (GMS) 和 Google Play Service Standalone
 
 ### 手表或手机程序crash
 
-* 如果出现 `java.lang.IncompatibleClassChangeError: The method 'void com.google.android.gms.common.api.GoogleApiClient.connect()' was expected to be of type interface but instead was found to be of type virtual`。可能是以下原因：
+- 如果出现 `java.lang.IncompatibleClassChangeError: The method 'void com.google.android.gms.common.api.GoogleApiClient.connect()' was expected to be of type interface but instead was found to be of type virtual`。可能是以下原因：
 
   1. adaptService调用顺序错误，建议放到Application的onCreate中调用。
   2. GMS版本太高，8.1.0以上版本修改了实现方式，MobvoiAPI不支持。建议使用经过测试的 7.3.0 和 7.5.0 版本。
 
-* 如果出现找不到 `isNearby` 方法。可能是 GMS版本太低。建议使用经过测试的 7.3.0 和 7.5.0 版本。
+- 如果出现找不到 `isNearby` 方法。可能是 GMS版本太低。建议使用经过测试的 7.3.0 和 7.5.0 版本。
 
 ### 手表或手机接收不到消息
 
-检查 `WearableListenerServiceGoogleImpl` 的配置是否正确。详见 [自适应兼容模式](#自适应兼容模式)。
+- 手机是否同时安装了 Ticwear 助手和 Android Wear 助手？
+
+  MobvoiAPI 需要在应用启动时选择一个通讯线路，如果同时存在两个线路（安装了两个助手），将优先选择 Ticwear，所以测试 Android Wear 的通讯时，需要先卸载 Ticwear助手，或者临时选择 `MobvoiApiManager.loadService()` 来指定 GMS 通讯。
+
+- 检查 `WearableListenerServiceGoogleImpl` 的配置是否正确。详见 [自适应兼容模式](#自适应兼容模式)。
 
 [aw]: https://www.android.com/wear/
 [ticwear]: http://ticwear.com/

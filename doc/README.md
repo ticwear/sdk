@@ -5,6 +5,7 @@
 ## 文档目录
 
  - [Developer Guide][developer-guide]
+ - [Ticwear开发入门][getting-started]
  - [开发兼容Ticwear和Android Wear的应用][gms-compat]
 
 ## 增加新文档
@@ -13,5 +14,8 @@
 
 [ticwear-dev-site]: http://developer.ticwear.com/doc/getting-started
 [developer-guide]: /doc/developer-guide.md
+[getting-started]: /doc/getting-started.md
 [gms-compat]: /doc/gms-compact.md
 [add-new-doc]: /doc/add-new-doc.md
+
+
