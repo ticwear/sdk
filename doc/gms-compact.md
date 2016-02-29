@@ -7,7 +7,7 @@
 
 ### 打包、兼容、以及各类概念的解释
 
-**打包**， 手表App不能独立发布，因此手表App都一定对应有一个手机App，发布时，必须将手表App包装到对应的手机App中，才可以发布。AW国际版和中国版，打包的配置是一样的，Ticwear平台，需要做不同的配置，详见[如何打包](#如何打包)。
+**打包**， 手表App不能独立发布，因此手表App都一定对应有一个手机App，发布时，必须将手表App包装到对应的手机App中，才可以发布。AW国际版和中国版，打包的配置是一样的，Ticwear平台，需要做不同的配置，详见[如何打包](#packaging)。
 
 **GMS & MMS**， 手机、手表的通讯API。GMS (Google Mobile Service) 是Google原生的通讯API，MMS (Mobvoi Mobile Service) 是出门问问为Ticwear研发的通讯API。MMS API除名称不一样外，其他的使用方式都是follow Google的GMS，以减少开发者的学习成本。
 
@@ -21,17 +21,17 @@
 
 #### 未使用特殊API的应用
 
-这类应用，并未使用任何特殊API（如通讯、语音语义、天气计步等），手表上的应用可独立运行在Ticwear和AndroidWear系统上。比较典型的应用是表盘应用和手表上的游戏等小应用。这类应用的开发者，只需要关心打包的兼容就可以了。请参看[如何打包](#如何打包)。
+这类应用，并未使用任何特殊API（如通讯、语音语义、天气计步等），手表上的应用可独立运行在Ticwear和AndroidWear系统上。比较典型的应用是表盘应用和手表上的游戏等小应用。这类应用的开发者，只需要关心打包的兼容就可以了。请参看[如何打包](#packaging)。
 
 #### 使用了MMS或GMS与手机通讯的应用
 
-这类应用，使用了MMS或GMS进行通讯。手表App需依赖手机App，或需要做些同步之类的工作。这是绝大部分应用属于的类型。这类开发者，除打包外，还需要关心[如何通讯](#如何通讯)。如果你需要兼容的是AW中国版，而不是国际版，你需要关心[AW中国版的通讯兼容](#aw中国版的通讯兼容)
+这类应用，使用了MMS或GMS进行通讯。手表App需依赖手机App，或需要做些同步之类的工作。这是绝大部分应用属于的类型。这类开发者，除打包外，还需要关心[如何通讯](#communication)。如果你需要兼容的是AW中国版，而不是国际版，你需要关心[AW中国版的通讯兼容](#aw-china)
 
 #### 使用了语音语义等特殊API的应用
 
-这类应用，使用了Ticwear或AW上的一些特殊API。如各自的语音、语义接口，或者Ticwear的天气、健康、挠挠等API。一部分的表盘应用，和一些工具、社交类应用会用到这些API。这类开发，除打包外，还需要关心[如何使用语音语义等特殊API](#如何使用语音语义等特殊api)
+这类应用，使用了Ticwear或AW上的一些特殊API。如各自的语音、语义接口，或者Ticwear的天气、健康、挠挠等API。一部分的表盘应用，和一些工具、社交类应用会用到这些API。这类开发，除打包外，还需要关心[如何使用语音语义等特殊API](#special-api)
 
-### 如何打包
+### <a id="packaging"></a>如何打包
 
 不同手表平台的打包方式，其区别主要在于manifest文件中的手表App标记。有了这个标记，各家手表平台就能识别出来，进行安装。
 
@@ -56,11 +56,11 @@
 如果你想同时兼容AW和Ticwear的打包，可以同时保留这两个 `meta-data`。
 
 
-### 如何通讯
+### <a id="communication"></a>如何通讯
 
 在 Ticwear 上进行通讯，需要使用 Mobvoi SDK，利用 MMS 通讯。Mobvoi SDK 实现了 Google Play Services (GMS) 中手表和手机之间数据传输的接口，包含Node API、Message API和Data API的全部功能。Mobvoi SDK 的接口名称、方法名以及语意与 Android Wear 的实现完全一致。
 
-在AW国际版上通讯，需要使用GMS，在AW中国版上通讯，需要使用[特定的 GMS](#aw中国版的通讯兼容)。
+在AW国际版上通讯，需要使用GMS，在AW中国版上通讯，需要使用[特定的 GMS](#aw-china)。
 
 Mobvoi API (MMS)、 Google Play Service (GMS) 和 Google Play Service Standalone 之间的关系见下图：
 
@@ -70,9 +70,9 @@ Mobvoi API (MMS)、 Google Play Service (GMS) 和 Google Play Service Standalone
 
 使用我们提供的Mobvoi API，有三种兼容方案可供选择。使你可以快速将Ticwear应用兼容AW，或者将应用从AW迁移到Ticwear上。推荐使用以下第一种方法，因为用这种方法打包的Apk可以同时兼容Ticwear和Android Wear平台，而不用为每个平台单独打包。
 
-#### 自适应兼容模式
+#### <a id="adapt-compat"></a>自适应兼容模式
 
-1. 引入[mobvoi-api.jar][mobvoi-jar]，同时添加或保留[google-play-services][gms-jar]（AW中国版需使用[特定的 GMS](#aw中国版的通讯兼容)）。
+1. 引入[mobvoi-api.jar][mobvoi-jar]，同时添加或保留[google-play-services][gms-jar]（AW中国版需使用[特定的 GMS](#aw-china)）。
 
     * 注1：建议使用 Android Studio 环境。如果是Eclipse用户，需手动添加 `Google Play Services` 的 meta-data 和 jar包，详见：[Setting Up Google Play Services][gms-jar]。
     * 注2：我们提供了兼容模式的 Sample code ([Eclipse][demo-compact-eclipse]/[Android Studio][demo-compact-as]) 供参考
@@ -131,7 +131,7 @@ Mobvoi API (MMS)、 Google Play Service (GMS) 和 Google Play Service Standalone
 2. 重新编译打包。
 
 
-### AW中国版的通讯兼容
+### <a id="aw-china"></a>AW中国版的通讯兼容
 
 国际版的 Android Wear 应用无法直接在中国版 Android Wear 手表操作系统上通讯。包含通讯功能的AW应用需要更换手机、手表端依赖的GMS库才能在中国版 Android Wear 系统上通讯，但不需要改任何代码（包括混淆配置等都保持与[`GMS`][gms-jar]一致）。详情可参看[英文官方文档][awc-doc]，或者参考我们的 [CompatModeChinaDemo][demo-compact-china]。
 
@@ -170,7 +170,7 @@ Mobvoi API (MMS)、 Google Play Service (GMS) 和 Google Play Service Standalone
 
 这样配置以后，你的应用将同时支持 Android Wear 国际版手表和 Android Wear 中国版手表。
 
-### 如何使用语音语义等特殊API
+### <a id="special-api"></a>如何使用语音语义等特殊API
 
 语音语义等API，都包含在了[mobvoi-api.jar][mobvoi-jar]中，只要依赖了这个jar包，即可使用[Ticwear专有API][ticwear-dev]。
 
@@ -197,7 +197,8 @@ Mobvoi API (MMS)、 Google Play Service (GMS) 和 Google Play Service Standalone
 
   MobvoiAPI 需要在应用启动时选择一个通讯线路，如果同时存在两个线路（安装了两个助手），将优先选择 Ticwear，所以测试 Android Wear 的通讯时，需要先卸载 Ticwear助手，或者临时选择 `MobvoiApiManager.loadService()` 来指定 GMS 通讯。
 
-- 检查 `WearableListenerServiceGoogleImpl` 的配置是否正确。详见 [自适应兼容模式](#自适应兼容模式)。
+- 检查 `WearableListenerServiceGoogleImpl` 的配置是否正确。详见 [自适应兼容模式](#adapt-compat)。
+
 
 [aw]: https://www.android.com/wear/
 [ticwear]: http://ticwear.com/

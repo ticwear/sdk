@@ -12,7 +12,7 @@
 
 ### 配置开发环境
 
-在应用市场上下载最新版本的Ticwear助手，安装在手机上。手机安卓系统必须为安卓4.3以上版本。将手表和手机均连接到电脑上，若手表无法通过USB直接连接电脑，请参看[WiFi调试](wifi调试)或者[蓝牙调试](#蓝牙调试)来连接手表。
+在应用市场上下载最新版本的Ticwear助手，安装在手机上。手机安卓系统必须为安卓4.3以上版本。将手表和手机均连接到电脑上，若手表无法通过USB直接连接电脑，请参看[WiFi调试](#wifi-debug)或者[蓝牙调试](#bt-debug)来连接手表。
 
 ### 创建项目
 
@@ -108,7 +108,7 @@
 }
 ```
 
-### WiFi调试
+### <a id="wifi-debug"></a>WiFi调试
 
 对于手表无法通过USB连接到电脑的情况，Ticwear支持直接使用WiFi进行调试，调试速度比蓝牙调试快。使用方法：
 
@@ -134,7 +134,7 @@
 
 注，如果WiFi调试时，出现类似 `unable to connect to <手表ip>:7272: Operation timed out` 的问题，可能是你的WiFi路由器设置了屏蔽，请使用蓝牙调试方式。
 
-### 蓝牙调试
+### <a id="bt-debug"></a>蓝牙调试
 
 对于手表无法通过USB连接到电脑或无法使用WiFi调试的情况，Ticwear支持使用蓝牙进行调试。使用方法：
 
@@ -183,7 +183,7 @@ MMS的API提供了一系列的接口作为手机端和手表端应用的通信�
 
 - **DataListener, MessageListener** (用于Activity): 实现DataListener以后，可以监听DataItem改变或者被删除的事件。实现MessageListener以后，可以接收发过来的消息。
 
-### 创建适合手表展现的界面
+### <a id="wear-ui-library"></a>创建适合手表展现的界面
 
 一般的Android界面可以在手表上运行，但并不是特别适合手表端的展现。所以开发者可以选用手表端的UI库来创建更适合在手表端展现的样式。在Android Studio里面自带了适合手表使用的UI库。如果使用Eclipse开发，可以[点击下载][eclipse-ui-lib]这个UI库。下载以后，建立一个Android的library项目，然后在正式项目中声明对该项目的依赖，请注意，此UI库依赖于[android-support-v7-recyclerview](https://developer.android.com/tools/support-library/features.html#v7-recyclerview)。为方便起见，我们也打包了这个依赖库，将根目录下的 `android-support-v7-recyclerview.jar` 复制到主工程libs中并依赖即可。
 
@@ -219,3 +219,5 @@ MMS的API提供了一系列的接口作为手机端和手表端应用的通信�
 [mobvoi-jar]: https://github.com/ticwear/sdk/raw/master/lib/mobvoi-api.jar
 [wearable-api]: http://developer.ticwear.com/doc/wearable-api
 [eclipse-ui-lib]: https://github.com/ticwear/sdk/raw/master/lib/eclipse-UI-lib.zip
+
+
