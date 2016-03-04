@@ -12,26 +12,26 @@
 
 ``` Java
 MobvoiApiClient mClient = new MobvoiApiClient.Builder(this)
-         .addConnectionCallbacks(new ConnectionCallbacks() {
-              @Override
-              public void onConnected(Bundle connectionHint) {
-                   Log.d(TAG, "onConnected: " + connectionHint);
-                   // Now you can use the Data Layer API
-              }
-              @Override
-              public void onConnectionSuspended(int cause) {
-                   Log.d(TAG, "onConnectionSuspended: " + cause);
-              }
-         })
-         .addOnConnectionFailedListener(new OnConnectionFailedListener() {
-              @Override
-              public void onConnectionFailed(ConnectionResult result) {
-                   Log.d(TAG, "onConnectionFailed: " + result);
-         }
-    })
-    // Request access only to the Wearable API
-    .addApi(Wearable.API)
-    .build();
+        .addConnectionCallbacks(new ConnectionCallbacks() {
+            @Override
+            public void onConnected(Bundle connectionHint) {
+                Log.d(TAG, "onConnected: " + connectionHint);
+                // Now you can use the Data Layer API
+            }
+            @Override
+            public void onConnectionSuspended(int cause) {
+                Log.d(TAG, "onConnectionSuspended: " + cause);
+            }
+        })
+        .addOnConnectionFailedListener(new OnCoionFailedListener() {
+            @Override
+            public void onConnectionFailed(ConnectionResult result) {
+                Log.d(TAG, "onConnectionFailed: " + result);
+            }
+        })
+        // Request access only to the Wearable API
+        .addApi(Wearable.API)
+        .build();
 ```
 
 需要先调用`connect()`，等到`onConnected()`回调以后client才能正常使用。

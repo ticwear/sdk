@@ -7,6 +7,7 @@
  - [Developer Guide][developer-guide]
  - [Ticwear开发入门][getting-started]
  - [开发兼容Ticwear和Android Wear的应用][gms-compat]
+ - [数据通讯API][wearable-api]
 
 ## 增加新文档
 
@@ -17,5 +18,6 @@
 [getting-started]: /doc/getting-started.md
 [gms-compat]: /doc/gms-compact.md
 [add-new-doc]: /doc/add-new-doc.md
+[wearable-api]: /doc/wearable-api.md
 
 
