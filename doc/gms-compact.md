@@ -76,7 +76,7 @@ Mobvoi API (MMS)、 Google Play Service (GMS) 和 Google Play Service Standalone
 
     * 注1：建议使用 Android Studio 环境。如果是Eclipse用户，需手动添加 `Google Play Services` 的 meta-data 和 jar包，详见：[Setting Up Google Play Services][gms-jar]。
     * 注2：我们提供了兼容模式的 Sample code ([Eclipse][demo-compact-eclipse]/[Android Studio][demo-compact-as]) 供参考
-    * 注3：目前我们仅测试支持了 `7.3.0` 和 `7.5.0` 版本，其他版本可能会出现兼容性问题。
+    * 注3：目前我们仅测试支持了 `7.3 ~ 7.8` 版本，其他版本可能会出现兼容性问题。
 
 2. 使用 Mobvoi API。详情参考[快速入门][ticwear-dev]。如果你已经有AW的代码，可以通过下面的步骤来切换：
     1. 将代码中的Google Mobile Services (GMS) API替换为仅包名不同的Mobvoi Mobile Services (MMS) API
@@ -182,14 +182,40 @@ Mobvoi API (MMS)、 Google Play Service (GMS) 和 Google Play Service Standalone
 
 开发兼容模式时遇到的一些常见问题，我们会在这里列举出来。
 
+### 如何判断当前是使用GMS还是MMS，是否支持这些协议？
+
+利用如下API，可以获取当前正在使用哪个协议通讯。
+
+```
+MobvoiApiManager.getInstance().getGroup();
+```
+
+其返回值可能是如下类型：
+
+```
+public enum ApiGroup {
+    MMS, GMS, NONE
+}
+```
+
+其中，NONE，表示没有初始化，或者初始化出错。请按照[自适应兼容模式](#adapt-compat)流程来使用。
+
+通过以下API，可以检测当前环境支持哪些通讯协议。
+
+```
+MobvoiApiManager.getInstance().isGmsAvailable(context);
+MobvoiApiManager.getInstance().isMmsAvailable(context);
+```
+
+
 ### 手表或手机程序crash
 
 - 如果出现 `java.lang.IncompatibleClassChangeError: The method 'void com.google.android.gms.common.api.GoogleApiClient.connect()' was expected to be of type interface but instead was found to be of type virtual`。可能是以下原因：
 
   1. adaptService调用顺序错误，建议放到Application的onCreate中调用。
-  2. GMS版本太高，8.1.0以上版本修改了实现方式，MobvoiAPI不支持。建议使用经过测试的 7.3.0 ~ 7.8.0 版本。
+  2. GMS版本太高，8.1.0以上版本修改了实现方式，MobvoiAPI不支持。建议使用经过测试的 7.3 ~ 7.8 版本。
 
-- 如果出现找不到 `isNearby` 方法。可能是 GMS版本太低。建议使用经过测试的 7.3.0 ~ 7.8.0 版本。
+- 如果出现找不到 `isNearby` 方法。可能是 GMS版本太低。建议使用经过测试的 7.3 ~ 7.8 版本。
 
 ### 手表或手机接收不到消息
 
