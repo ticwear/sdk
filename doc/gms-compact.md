@@ -225,6 +225,26 @@ MobvoiApiManager.getInstance().isMmsAvailable(context);
 
 - 检查 `WearableListenerServiceGoogleImpl` 的配置是否正确。详见 [自适应兼容模式](#adapt-compat)。
 
+### connect 失败
+
+如果看到类似这样的日志：
+
+```
+GooglePlayServicesUtil: Google Play services out of date.  Requires 7895000 but found 7887534
+```
+
+请确认你的 GMS 版本是否太低。或者，是否没有同时修改手机、手表两侧的 GMS 依赖（必须修改 GMS 版本为`7.8.87`）。
+
+### 如何调试 GMS 通讯
+
+类似 MMS 的调试，我们也可以打开 GMS 的调试日志来帮助我们定位问题。
+
+在需要调试的设备上（手机或手表），进入 `adb shell`，然后执行下面的命令即可打开 GMS 的调试日志：
+
+``` shell
+setprop log.tag.WearableService VERBOSE
+setprop log.tag.WearableConn VERBOSE
+```
 
 [aw]: https://www.android.com/wear/
 [ticwear]: http://ticwear.com/

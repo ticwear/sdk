@@ -20,5 +20,5 @@ android {
 
 dependencies {
     compile files('libs/mobvoi-api.jar')
-    compile 'com.google.android.gms:play-services-wearable:7.3.0'
+    compile 'com.google.android.gms:play-services-wearable:7.8.0'
 }
