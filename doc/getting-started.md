@@ -74,18 +74,25 @@
 #### Eclipse 手动打包
 
 1. 将手表端APK的所有Manifest中的权限声明都在手机端APK的Manifest中声明。
-2. 保证手表端APK和手机端APK有同样的包名和版本号
-3. 将签名以后的手表端应用拷贝到手机端项目的res/raw的目录下，命名该手表端应用为wearable_app.apk
+2. 保证手表端APK和手机端APK**有同样的包名和版本号**
+3. 将签名以后的手表端应用拷贝到手机端项目的`res/raw`的目录下，命名该手表端应用为`wearable_app.apk`
 4. 创建一个 `res/xml/wearable_app_desc.xml` 文件，包括手表端应用的版本和路径信息。例如：
 
     ``` xml
     <wearableApp package="wearable.app.package.name">
             <versionCode>1</versionCode>
             <versionName>1.0</versionName>
+
+            <!-- 如果使用Android Studio自动打包, 该值为android_wear_micro_apk -->
             <rawPathResId>wearable_app</rawPathResId>
-            // 如果使用Android Studio自动打包, 该值为android_wear_micro_apk
     </wearableApp>
     ```
+
+    > **注**：这个XML文件非常关键，请保证:
+
+    > 1. `rawPathResId`里的名称，与你放到`res/raw`下的手表APK名称一致。
+    > 2. `versionCode`、`versionName` 与手表APK一致。
+    > 3. `package`与手机、手表一致。
 
 5. 添加一个 `meta-data` 标签在手机端app的 `<application>` 中，声明 `wearable_app_desc.xml` 的路径。
 
