@@ -35,25 +35,36 @@
 
 不同手表平台的打包方式，其区别主要在于manifest文件中的手表App标记。有了这个标记，各家手表平台就能识别出来，进行安装。
 
-对于Ticwear的打包，参考[快速入门][ticwear-dev]的应用打包流程来打包。 对于Android Wear的打包，如果使用的是[Android Studio][as]，你的手表应用应该已经使用 `wearApp('yourWearApp')` 依赖起来了。那么，你不需要做任何事情，只需要使用release 模式打包，就能输出符合AW标准的应用。详情请参考[Packaging Wearable Apps][aw-pkg]
+对于Ticwear的打包，参考[快速入门][ticwear-dev]的应用打包流程。
 
-但如果你仍然希望使用Eclipse，你需要在配置好Ticwear打包之后，在manifest里面添加下面的meta-data：
+对于Android Wear的打包，如果使用的是 [Android Studio][as]（强烈建议你使用AS，Android官方已经不维护Eclipse插件了），你的手表应用应该已经使用 `wearApp('yourWearApp')` 依赖起来了。那么，你不需要做任何事情，只需要使用release 模式打包，就能输出符合AW标准的应用。详情请参考[Packaging Wearable Apps][aw-pkg]。
 
-``` xml
-<meta-data android:name="com.google.android.wearable.beta.app"
-            android:resource="@xml/wearable_app_desc"/>
-```
+但如果你仍然希望使用Eclipse：
 
-这与Ticwear的配置非常类似：
+1. 你需要在配置好Ticwear打包之后，在manifest里面添加下面的meta-data：
 
-``` xml
-<meta-data android:name="com.mobvoi.ticwear.app"
-            android:resource="@xml/wearable_app_desc"/>
-```
+    ``` xml
+    <meta-data android:name="com.google.android.wearable.beta.app"
+                android:resource="@xml/wearable_app_desc"/>
+    ```
 
-其中， `wearable_app_desc` 是你的手表App描述文件的位置。
+    这与Ticwear的配置非常类似：
 
-如果你想同时兼容AW和Ticwear的打包，可以同时保留这两个 `meta-data`。
+    ``` xml
+    <meta-data android:name="com.mobvoi.ticwear.app"
+                android:resource="@xml/wearable_app_desc"/>
+    ```
+
+    其中， `wearable_app_desc` 是你的手表App描述文件的位置。
+
+    如果你想同时兼容AW和Ticwear的打包，可以同时保留这两个 `meta-data`。
+
+2. 如果需要为中国版AW打包，还需要添加下面的meta-data：
+
+    ``` xml
+    <meta-data android:name="com.google.android.wearable.local_edition_compatible"
+                android:value="true"/>
+    ```
 
 
 ### <a id="communication"></a>如何通讯
@@ -170,6 +181,12 @@ Mobvoi API (MMS)、 Google Play Service (GMS) 和 Google Play Service Standalone
 
 这样配置以后，你的应用将同时支持 Android Wear 国际版手表和 Android Wear 中国版手表。
 
+#### 必须使用Eclipse？
+
+首先建议你使用 Android Studio，能自动完成大量的配置工作。但如果由于某些原因，必须使用 Eclipse，你可以参考我们的[CompatModeChinaDemo][awc-demo-eclipse]。
+
+请注意libs内的play-services版本，以及`AndroidManifest.xml`文件中的`meta-data`。
+
 ### <a id="special-api"></a>如何使用语音语义等特殊API
 
 语音语义等API，都包含在了[mobvoi-api.jar][mobvoi-jar]中，只要依赖了这个jar包，即可使用[Ticwear专有API][ticwear-dev]。
@@ -178,7 +195,7 @@ Mobvoi API (MMS)、 Google Play Service (GMS) 和 Google Play Service Standalone
 
 
 
-## 遇到问题？
+## <a id="qa"></a>遇到问题？
 
 开发兼容模式时遇到的一些常见问题，我们会在这里列举出来。
 
@@ -246,6 +263,7 @@ setprop log.tag.WearableService VERBOSE
 setprop log.tag.WearableConn VERBOSE
 ```
 
+
 [aw]: https://www.android.com/wear/
 [ticwear]: http://ticwear.com/
 [ticwear-dev]: http://developer.ticwear.com/doc/getting-started
@@ -260,4 +278,5 @@ setprop log.tag.WearableConn VERBOSE
 [demo-compact-eclipse]: https://github.com/ticwear/sdk/tree/master/sample/eclipse/CompatModeDemo
 [demo-compact-as]: https://github.com/ticwear/sdk/tree/master/sample/android-studio/CompatModeDemo
 [demo-compact-china]: https://github.com/ticwear/sdk/tree/master/sample/android-studio/CompatModeChinaDemo
+[awc-demo-eclipse]: https://github.com/ticwear/sdk/tree/master/sample/eclipse/CompatModeChinaDemo
 
