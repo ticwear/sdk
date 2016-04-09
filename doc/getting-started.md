@@ -222,9 +222,12 @@ MMS的API提供了一系列的接口作为手机端和手表端应用的通信�
 
 **WearableListView**: 一个为手表适配优化过的ListView。
 
+### 示例
+关于Mobvoi-api的详细用法以及手表的界面实现范例，可以参考项目[mobvoi-api-demo]。
+
 
 [mobvoi-jar]: https://github.com/ticwear/sdk/raw/master/lib/mobvoi-api.jar
 [wearable-api]: http://developer.ticwear.com/doc/wearable-api
 [eclipse-ui-lib]: https://github.com/ticwear/sdk/raw/master/lib/eclipse-UI-lib.zip
-
+[mobvoi-api-demo]: https://github.com/ticwear/TicwearApiDemo
 
