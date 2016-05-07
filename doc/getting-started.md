@@ -67,7 +67,7 @@
     apply plugin: 'ticwear'
     ```
 
-4. 使用 release 方式打包。
+4. 使用 **release** 方式打包。
 
 [查看更多应用打包图文教程](http://ask.ticwear.com/?/article/20)
 
