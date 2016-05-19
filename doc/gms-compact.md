@@ -254,7 +254,7 @@ GooglePlayServicesUtil: Google Play services out of date.  Requires 7895000 but 
 
 ### 如何调试 GMS 通讯
 
-类似 MMS 的调试，我们也可以打开 GMS 的调试日志来帮助我们定位问题。
+类似 [MMS 的调试][wearable-debug]，我们也可以打开 GMS 的调试日志来帮助我们定位问题。
 
 在需要调试的设备上（手机或手表），进入 `adb shell`，然后执行下面的命令即可打开 GMS 的调试日志：
 
@@ -279,4 +279,5 @@ setprop log.tag.WearableConn VERBOSE
 [demo-compact-as]: https://github.com/ticwear/sdk/tree/master/sample/android-studio/CompatModeDemo
 [demo-compact-china]: https://github.com/ticwear/sdk/tree/master/sample/android-studio/CompatModeChinaDemo
 [awc-demo-eclipse]: https://github.com/ticwear/sdk/tree/master/sample/eclipse/CompatModeChinaDemo
+[wearable-debug]: /doc/wearable-api.md#debug-wearable-api
 
