@@ -22,9 +22,9 @@
 [android-wear]: https://www.android.com/wear/
 [ticwear-sdk]: https://github.com/ticwear/sdk/raw/master/lib/mobvoi-api.jar
 [release-log]: /lib/ReleaseLog
-[getting-started]: http://developer.ticwear.com/doc/getting-started
+[getting-started]: http://developer.ticwear.com/v2/doc/ticwear/getting-started
 [android-wear-sdk]: https://github.com/ticwear/sdk/raw/master/lib/google-play-services-7-8-87.zip
-[creating-awc]: http://developer.ticwear.com/v2/doc/apk
-[gms-compat]: http://developer.ticwear.com/doc/gms-compat
+[creating-awc]: http://developer.ticwear.com/v2/doc/androidwear/android
+[gms-compat]: http://developer.ticwear.com/v2/doc/ticwear/gms-compat
 [eclipse-ui]: https://github.com/ticwear/sdk/raw/master/lib/eclipse-UI-lib.zip
 [gms-replace]: https://github.com/ticwear/sdk/raw/master/lib/mobvoi-api-gms-replaceable.jar
