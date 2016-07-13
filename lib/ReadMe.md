@@ -18,6 +18,26 @@
 
    方便已经有AW应用的开发者，快速迁移到Ticwear平台上。[点击下载][gms-replace]，详情参考[开发兼容Ticwear和Android Wear的应用][gms-compat]。
 
+# SDK download center (English version)
+
+The git directory hosts all SDK and sample code base relate to [Ticwear][ticwear] and [Android Wear][android-wear]. You can download among the list below:
+
+1. **mobvoi-api.jar**:
+
+   Ticwear SDK, including Ticwear DataLayer API which provides the communication ability between the phone and the watch and other powerful API, can be downloaded [here][ticwear-sdk]. Please refer to [Getting Started][getting-started] for more details. You can also refer to the [ReleaseLog][release-log].
+
+2. **google-play-services-7-8-87.zip**:
+
+   Android Wear China version (AW China for short) SDK which is for developing the apps which can run both on Android Wear global version and Android Wear China version is available [here][android-wear-sdk]. If you want to create an app which is adapted to AW China, AW Global and Ticwear, you can refer to [How to develop an app to adapt to AW and Ticwear][gms-compat].
+
+3. **eclipse-UI-lib.zip**:
+
+   The UI library for the developers using Eclispe to fit for smart watch for convenience is available [here][eclipse-ui] and details can also be referred to [here][getting-started].
+
+4. **mobvoi-api-gms-replaceable.jar**:
+
+   For the developers who already had the AW apps, we provide an easier way to transfer to the Ticwear platform. Please refer to the [document][gms-compat] and download the lib [here][gms-replace].
+
 [ticwear]: http://ticwear.com/
 [android-wear]: https://www.android.com/wear/
 [ticwear-sdk]: https://github.com/ticwear/sdk/raw/master/lib/mobvoi-api.jar
