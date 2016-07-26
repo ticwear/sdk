@@ -152,11 +152,11 @@ If the watch can not connect to a computer via USB or can not use WiFi to debug,
 
 2. In the watch Developer's options find "ADB debugging" and "via Bluetooth debugging."
 
-3. Open the Ticwear Companion, click the upper right corner and then enter the "More" options, click the icon above the version number multiple times to open developer options.
+3. Open the Ticwear Companion's side panel, click the  version number on bottom multiple times to open developer options.
 
-4. Open the mobile terminal Bluetooth debugging.
+4. Enter "Advanced Setting" and open the Bluetooth debugging.
 
-5. Execute the following command:
+5. Execute the following command in terminal:
 
     ``` shell
     adb forward tcp:4444 localabstract:/adb-hub
