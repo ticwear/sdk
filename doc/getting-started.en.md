@@ -18,16 +18,16 @@ Download the latest version of Ticwatch Companion, and install on your phone. An
 
 Using Android Studio or Eclipse you can create development projects. In Android Studio Description for example, to create a project, click File -> New Project. Follow the prompts to complete the following steps:
 
-1. In the “Configure your new project” window, enter the application name and the package name.
+1. In the "Configure your new project" window, enter the application name and the package name.
 
-2. In the “Form factors” window:
+2. In the "Form factors" window:
 
 	1. Select Phone and Tablet and select the API 18: Android 4.3 (Jelly Bean ) as Minimum SDK.
 	2. Select Wear and select API 20: Android 4.4 (KitKat Wear) as Minimum SDK.
 	
-3. In the first window “Add an activity to Mobile”, for mobile device add a blank Activity.
+3. In the first window "Add an activity to Mobile", for mobile device add a blank Activity.
 
-4. In the second “Add an activity to Wear” window, for watch device add a blank Activity.
+4. In the second "Add an activity to Wear" window, for watch device add a blank Activity.
 
 5. Download [mobvoi-api.jar][mobvoi-jar] , and add to project library dependencies.
 
@@ -88,7 +88,7 @@ Phone-side and watch-side applications can be installed independently on the pho
     </wearableApp>
     ```
 
-    > **Note**：The XML file is very important，please ensure:
+    > **Note**:The XML file is very important，please ensure:
 
     > 1. The name in `rawPathResId` is the same as the watch side apk name in `res/raw`
     > 2. `versionCode`、`versionName` is the same with the watch side apk.

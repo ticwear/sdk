@@ -6,7 +6,7 @@ For details, refer to Github inside Ticwear SDK open source projects [speech rec
 
 Ticwear provides two APIs: voice query and speech input. Developers can easily access the speech recognition engine, activate voice recognition and use voice to text in applications. Voice query API provides daily information query terms to text function, and speech input API provides common functions like voice input input method. The difference between voice query API and speech input API is that speech input API has a customized message content class, longer voice detection end time limit, and automatically adds punctuation. For example, when the user is silent for one second then a comma is automatically added, 5 seconds of silence is considered the end and a period is added at the end.
 
-### Voice Query API
+### Voice query API
 
 You only need to write an ｀Activity｀, inherit the abstract class `SpeechRecognitionApi.SpeechRecogActivity`, and call `startRecognition` inside the ｀Activity｀ to initiate speech recognition. Then follow the prompts to complete the two callback functions ｀onRecognitionSuccess(String result)｀ and ｀onRecognitionFailed()｀, to receive speech recognition result.
 

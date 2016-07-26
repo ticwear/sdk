@@ -38,7 +38,7 @@ DatetimeTagValue time = SemanticIntentApi.extractAsDatetime(getIntent(),
         "departure_date");
 ```
 
-Please note that before using these semantic tags, please determine whether or not it is null.  Because the user may not mention a semantic query tag information (such as “flights Shanghai to Beijing” omitting the departure time), please handle these situations in the program logic. 
+Please note that before using these semantic tags, please determine whether or not it is null.  Because the user may not mention a semantic query tag information (such as "flights Shanghai to Beijing" omitting the departure time), please handle these situations in the program logic. 
 
 If you have confirmed that semantic tags are not null, you can directly call: 
 
