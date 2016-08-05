@@ -39,17 +39,17 @@ Packaging for Ticwear: [Getting Started ][ticwear-dev].
 
 Packaging for Android Wear: If you use [Android Studio][as], , your app should be already ok with `wearApp('yourWearApp')`, nothing more is needed. More in [Packaging Wearable Apps][aw-pkg].  If you use Eclipse(not recommended), the following meta-data need be added to manifest file after configuring Ticwear packaging.
 
-    ``` xml
-    <meta-data android:name="com.google.android.wearable.beta.app"
+``` xml
+<meta-data android:name="com.google.android.wearable.beta.app"
                 android:resource="@xml/wearable_app_desc"/>
-    ```
+```
 
-    Very similar to Ticwear:
+Very similar to Ticwear:
 
-    ``` xml
-    <meta-data android:name="com.mobvoi.ticwear.app"
+``` xml
+<meta-data android:name="com.mobvoi.ticwear.app"
                 android:resource="@xml/wearable_app_desc"/>
-    ```
+```
 
 `wearable_app_desc` points to the description file of you watch app.
 
@@ -57,10 +57,10 @@ Yes, if you want to package for both Android Wear and Ticwear, both of the above
 
 If you want to package for Android Wear China, you need to add the meta-data in additional.
 
-    ``` xml
-    <meta-data android:name="com.google.android.wearable.local_edition_compatible"
+``` xml
+<meta-data android:name="com.google.android.wearable.local_edition_compatible"
                 android:value="true"/>
-    ```
+```
 
 
 ### <a id="communication"></a>Communication
