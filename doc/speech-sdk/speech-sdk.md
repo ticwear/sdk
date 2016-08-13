@@ -42,18 +42,20 @@ Android平台上目前支持所有主流体系结构，如armv8，armv7，mips�
 # 使用说明
 
 ## 初始化
-
+``` java
 	private static final String sApiKey = "be2f13c5ab21fdc81d16d69d15335f6a378aaa718b1a48dd316b8aaecf798942";
 	private static final String sAppKey = "com.mobvoi.test";
 	private static final String sPartner = "mobvoi";
 	SpeechClient.getInstance().init(context, sAppKey, sApiKey, sPartner, true, true);
+```
  
 ## 设置回调函数
-
+``` java
 	SpeechClient.getInstance().setClientListener(“ClientName”, new SpeechClientListenerImpl());
+```
  
 而SpeechClientListenerImpl需要实现接口SpeechClientListener
- 
+``` java
 	private class SpeechClientListenerImpl implements SpeechClientListener {
 	
 	// 开始提供录音数据给语音识别引擎时回调
@@ -83,7 +85,7 @@ Android平台上目前支持所有主流体系结构，如armv8，armv7，mips�
 	// 语音识别服务已经成功初始化
 	public void onReady() {}
 	｝
- 
+```
 ## 进行语音识别
 
 - Mobvoi支持多种语音识别方式： ASR，仅语音识别，无语义分析，无搜索结果。 
@@ -99,14 +101,16 @@ Android平台上目前支持所有主流体系结构，如armv8，armv7，mips�
 - Cancel，取消此次语音识别，系统不会返回任何结果
 
 例子：
-
+``` java
 	SpeechClient.getInstance().startMixRecognizer(deviceName);
 	SpeechClient.getInstance().stopRecognizer(deviceName);
 	SpeechClient.getInstance().cancelReconizer(deviceName);
+```
 
 ## 热词唤醒
 ### 实现接口
 
+``` java
 	public class HotwordListenerImpl implements HotwordListener{
 	    @Override
 	    public void onHotwordDetected() {
@@ -117,26 +121,31 @@ Android平台上目前支持所有主流体系结构，如armv8，armv7，mips�
 	public interface HotwordListener {
 	    void onHotwordDetected();
 	}
+```
 
 ### 打开热词监听
-
+``` java
 	SpeechClient.getInstance().addHotwordListener();
 	SpeechClient.getInstance().startHotword();
+```
  
 ### 关闭热词监听
-
+``` java
 	SpeechClient.getInstance().removeHotwordListener();
 	SpeechClient.getInstance().stopHotword();
+```
  
 ## 语音合成
 
 ### 开始语音合成
-
+``` java
 	SpeechClient.getInstance().startTTS("海淀区天气晴朗，气温20到25摄氏度");
+```
  
 ### 关闭语音合成
-
+``` java
 	SpeechClient.getInstance().stopTTS();
+```
  
 # 返回结果
 
@@ -344,7 +353,6 @@ Android平台上目前支持所有主流体系结构，如armv8，armv7，mips�
 | 6      	| 起始静音时间过长 	|
 | 7      	| 网络太慢         |
  
-
 
 
 
