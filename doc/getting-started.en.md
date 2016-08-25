@@ -215,7 +215,7 @@ The following are some of the main categories:
 For the details and demo of Mobvoi-api, please refer to the [project][mobvoi-api-demo].
 
 [mobvoi-jar]: https://github.com/ticwear/sdk/raw/master/lib/mobvoi-api.jar
-[wearable-api]: http://developer.ticwear.com/doc/wearable-api
+[wearable-api]: http://developer.chumenwenwen.com/en/v2/doc/ticwear/wearable-api
 [eclipse-ui-lib]: https://github.com/ticwear/sdk/raw/master/lib/eclipse-UI-lib.zip
 [mobvoi-api-demo]: https://github.com/ticwear/TicwearApiDemo
 

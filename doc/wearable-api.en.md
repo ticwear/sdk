@@ -165,4 +165,4 @@ adb shell setprop log.tag.MobvoiMobileService VERBOSE
 [ticwear-sdk]: https://github.com/ticwear/sdk
 [mms-demo-eclipse]: https://github.com/ticwear/sdk/tree/master/sample/eclipse/DataLayer
 [mms-demo-as]: https://github.com/ticwear/sdk/tree/master/sample/android-studio/DataLayer
-[compat-mode]: http://developer.ticwear.com/doc/gms-compat
+[compat-mode]: http://developer.chumenwenwen.com/en/v2/doc/ticwear/gms-compat

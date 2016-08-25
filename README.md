@@ -2,18 +2,18 @@
 为了方便第三方开发者迅速使用SDK来开发Ticwear应用，我们提供了以下联系方式来协助开发：  
 **QQ群：114947882**  
 **微博：Ticwear**  
-**官网：http://developer.ticwear.com/**  
+**官网：http://developer.chumenwenwen.com/**
 **社区：http://ask.ticwear.com/**  
 
 ## 非Android Wear开发者
 我们建议您采用如下步骤
 * Step 1：运行sample文件夹里的示例程序来了解SDK提供的基本功能，如数据传输和语音输入
-* Step 2：阅读开发文档深入了解如何使用: http://developer.ticwear.com/doc/getting-started
+* Step 2：阅读开发文档深入了解如何使用: http://developer.chumenwenwen.com/v2/doc/ticwear/getting-started
 
 ## Android Wear开发者
 Android Wear应用目前分为国际版和中国版，中国版的应用需要使用裁剪版的SDK（在文件夹android-wear-lib中可以找到）。
 关于如何开发一个中国版的Android Wear应用，并将此应用移植到Ticwear平台，请参考Android Wear应用兼容文档：  
-http://developer.ticwear.com/doc/gms-compat
+http://developer.chumenwenwen.com/v2/doc/ticwear/gms-compat
 
 如果您想让您的应用同时兼容Android Wear（国际版或中国版）和Ticwear，请采用如下步骤
 
@@ -43,7 +43,7 @@ http://developer.ticwear.com/doc/gms-compat
     ```
     
   * 使用 release 方式打包
-  * 更多应用打包详情，参考开发者文档中的[打包应用](http://developer.ticwear.com/doc/getting-started#打包应用)
+  * 更多应用打包详情，参考开发者文档中的[打包应用](http://developer.chumenwenwen.com/v2/doc/ticwear/getting-started#打包应用)
 
 2. 如果你使用了GMS通讯，需要替换成 Mobvoi Mobile Services：
   * 引入mobvoi-api.jar，同时保留google-play-services.jar
@@ -60,4 +60,4 @@ http://developer.ticwear.com/doc/gms-compat
     ```
 * 重新编译打包
 
-3. 更多兼容AW的详情，参考开发者文档中[AW应用兼容](http://developer.ticwear.com/doc/gms-compat)
+3. 更多兼容AW的详情，参考开发者文档中[AW应用兼容](http://developer.chumenwenwen.com/v2/doc/ticwear/gms-compat)
