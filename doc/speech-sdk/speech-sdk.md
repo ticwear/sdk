@@ -43,13 +43,41 @@ Android平台上目前支持所有主流体系结构，如armv8，armv7，mips�
 
 ## 初始化
 ``` java
-	private static final String sApiKey = "be2f13c5ab21fdc81d16d69d15335f6a378aaa718b1a48dd316b8aaecf798942";
+	// 非正式Appkey， 仅提供给开发者Demo使用
 	private static final String sAppKey = "com.mobvoi.test";
-	private static final String sPartner = "mobvoi";
-	SpeechClient.getInstance().init(context, sAppKey, sApiKey, sPartner, true, true);
+	SpeechClient.getInstance().init(context, sAppKey, true, true);
+```
+
+## 热词唤醒
+### 实现接口
+
+``` java
+	public class HotwordListenerImpl implements HotwordListener{
+	    @Override
+	    public void onHotwordDetected() {
+	       // 此时添加热词唤醒后的处理内容
+	    }
+	}
+ 
+	public interface HotwordListener {
+	    void onHotwordDetected();
+	}
+```
+
+### 打开热词监听
+``` java
+	SpeechClient.getInstance().addHotwordListener();
+	SpeechClient.getInstance().startHotword();
 ```
  
-## 设置回调函数
+### 关闭热词监听
+``` java
+	SpeechClient.getInstance().removeHotwordListener();
+	SpeechClient.getInstance().stopHotword();
+``` 
+
+##语音识别 
+### 设置回调函数
 ``` java
 	SpeechClient.getInstance().setClientListener(“ClientName”, new SpeechClientListenerImpl());
 ```
@@ -86,7 +114,7 @@ Android平台上目前支持所有主流体系结构，如armv8，armv7，mips�
 	public void onReady() {}
 	｝
 ```
-## 进行语音识别
+### 进行语音识别
 
 - Mobvoi支持多种语音识别方式： ASR，仅语音识别，无语义分析，无搜索结果。 
 - Semantic, 语音识别，返回语义分析，无搜索结果。
@@ -106,42 +134,53 @@ Android平台上目前支持所有主流体系结构，如armv8，armv7，mips�
 	SpeechClient.getInstance().stopRecognizer(deviceName);
 	SpeechClient.getInstance().cancelReconizer(deviceName);
 ```
-
-## 热词唤醒
-### 实现接口
-
-``` java
-	public class HotwordListenerImpl implements HotwordListener{
-	    @Override
-	    public void onHotwordDetected() {
-	       // 此时添加热词唤醒后的处理内容
-	    }
-	}
  
-	public interface HotwordListener {
-	    void onHotwordDetected();
-	}
-```
-
-### 打开热词监听
+##热词+语音搜索（Oneshot）
+支持热词+语音搜索一次触发（Oneshot）模式。 比如可以直接说“你好问问今天天气怎么样”， 这样在某些场景下， 用户会感觉交流更自然， 反应更快捷。 针对不同的语音搜索， 我们提供了不同的Oneshot接口， 包括： Mix， Onebox， Semantic和Offline, 以下以Mix为例：
+###打开Oneshot
 ``` java
 	SpeechClient.getInstance().addHotwordListener();
-	SpeechClient.getInstance().startHotword();
-```
- 
-### 关闭热词监听
+	SpeechClient.getInstance().startOneshotMixRecognizer(deviceName);
+``` 
+
+###关闭Oneshot
 ``` java
-	SpeechClient.getInstance().removeHotwordListener();
-	SpeechClient.getInstance().stopHotword();
-```
+	SpeechClient.getInstance().stopOneshotRecognizer(deviceName);
+``` 
+###取消Oneshot
+``` java
+	SpeechClient.getInstance().cancelOneshotRecognizer(deviceName); 
+``` 
  
 ## 语音合成
 
 ### 开始语音合成
+方式一： 不使用回调
 ``` java
 	SpeechClient.getInstance().startTTS("海淀区天气晴朗，气温20到25摄氏度");
 ```
- 
+方式二： 使用回调
+``` java
+	class TTSListenerImpl implements TTSListener {
+
+            @Override
+            public void onStart() {
+                // 当TTS开始播放时回调
+            }
+
+            @Override
+            public void onError() {
+                // 当TTS播放出错时回调
+            }
+
+            @Override
+            public void onDone() {
+                // 当TTS播放结束时回调
+            }
+        }
+	SpeechClient.getInstance().startTTS("海淀区天气晴朗，气温20到25摄氏度", new TTSListenerImpl()）；
+```
+
 ### 关闭语音合成
 ``` java
 	SpeechClient.getInstance().stopTTS();
@@ -353,6 +392,5 @@ Android平台上目前支持所有主流体系结构，如armv8，armv7，mips�
 | 6      	| 起始静音时间过长 	|
 | 7      	| 网络太慢         |
  
-
 
 
