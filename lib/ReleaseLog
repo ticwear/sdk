@@ -9,3 +9,7 @@ Release 2015-07-27
 Release 2015-09-07
   * Notes
     - Add release() function to GetFdForAssetResult.
+
+Release 2016-09-24
+  * Notes
+    - Support Ticwear Global version.
