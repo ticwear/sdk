@@ -29,7 +29,7 @@
 
 4. 在第二个Add an activity to Wear窗口，为手表设备添加一个空白Activity。
 
-5. 下载[mobvoi-api.jar][mobvoi-jar]，添加到项目的库依赖中。
+5. 在项目中添加对Ticwear SDK的依赖。
 
 当结束创建向导以后，Android Studio会创建一个包含两个模块的新工程。你现在可以为手机端和手表端的两个应用创建Activity、Service、UI等等。在手机端应用，一般做一些比较重的任务，例如网络连接，复杂的计算或者一些需要复杂用户交互的任务。当在手机端完成任务以后，可以把手机端的处理结果通过[数据传输API][wearable-api]通知给手表端。
 
@@ -230,4 +230,3 @@ MMS的API提供了一系列的接口作为手机端和手表端应用的通信�
 [wearable-api]: http://developer.chumenwenwen.com/v2/doc/ticwear/wearable-api
 [eclipse-ui-lib]: https://github.com/ticwear/sdk/raw/master/lib/eclipse-UI-lib.zip
 [mobvoi-api-demo]: https://github.com/ticwear/TicwearApiDemo
-
