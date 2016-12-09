@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    compileSdkVersion 25
+    buildToolsVersion "25.0.1"
 
     defaultConfig {
         applicationId "mobvoi.demo.compat.china"
-        minSdkVersion 17
+        minSdkVersion 18
         targetSdkVersion 21
     }
 
@@ -19,6 +19,6 @@ android {
 }
 
 dependencies {
-    compile files('libs/mobvoi-api.jar')
+    compile "com.ticwear:mobvoi-api-gms-china:1.0.3"
     compile 'com.google.android.gms:play-services-wearable:7.8.87'
 }
