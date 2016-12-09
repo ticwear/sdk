@@ -1,5 +1,48 @@
 ## 快速入门
 
+### 获取 Ticwear SDK
+
+Ticwear SDK已上传至 [bintray.com/ticwear/maven](https://bintray.com/ticwear/maven)，可通过Gradle或者maven的方式集成到你的应用中。
+
+Ticwear SDK主要有两个版本：
+
+1. mobvoi-api
+   * 这个是通用版，可用于开发纯Ticwear应用，也可用于开发与Android Wear（GMS通用版）兼容的应用。
+2. mobvoi-api-gms-china
+   * 这个是兼容Android Wear中国版（GMS中国版，即GMS 7.8.87）的特殊版本。
+
+使用Gradle方式集成Ticwear SDK的方法如下：
+
+1. 引用Ticwear SDK的maven库
+
+    ```gradle
+    allprojects {
+        repositories {
+            jcenter()
+            maven {
+                url 'https://dl.bintray.com/ticwear/maven'
+            }
+        }
+    }
+    ```
+2. 使用Ticwear SDK
+
+    ```gradle
+    dependencies {
+        compile "com.ticwear:mobvoi-api:1.0.3"
+    }
+    ```
+
+    或者
+
+    ```gradle
+    dependencies {
+        compile "com.ticwear:mobvoi-api-gms-china:1.0.3"
+    }
+    ```
+
+对于使用Eclipse的开发人员，可以从 [bintray.com/ticwear/maven](https://bintray.com/ticwear/maven) 上下载JAR包使用。
+
 ### 创建一个Ticwear应用
 
 一个Ticwear应用由两部分组成：1) 运行在手表端的APK；2) 运行在手机端的应用。通常情况下，运行在手表端的APK会被打包在手机端应用中，在安装时会被自动推送到手表上。所以将Ticwear应用上传到Ticwear应用商店时只需要上传手机端应用即可。在这里，我们将一步步教你如何创建一个简单的Ticwear应用。
