@@ -40,7 +40,7 @@ Ticwear SDK主要有两个版本：
 
     或者
 
-    ```
+    ```gradle
     dependencies {
         compile "com.ticwear:mobvoi-api-gms-china:1.0.3"
     }

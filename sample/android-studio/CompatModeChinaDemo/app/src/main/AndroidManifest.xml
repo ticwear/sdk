@@ -3,7 +3,7 @@
     package="com.mobvoi.android.test" >
 
     <!-- If you got "No, missing uses-feature watch" when install on watch, open this feature -->
-    <uses-feature android:name="android.hardware.type.watch" />
+    <!--<uses-feature android:name="android.hardware.type.watch" />-->
 
     <application
         android:name=".BaseApplication"
