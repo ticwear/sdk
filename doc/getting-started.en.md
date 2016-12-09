@@ -1,5 +1,51 @@
 ## Quick Start
 
+### Get Ticwear SDK
+
+Ticwear SDK has been uploaded to [bintray.com/ticwear/maven](https://bintray.com/ticwear/maven) and can be integrated by Gradle or Maven.
+
+Ticwear SDK has two versions:
+
+* mobvoi-api
+
+  * The general version for developing Ticwear applications or Android Wear compatible applications.
+
+* mobvoi-api-gms-china
+
+  * The special version for developing Android Wear China compatible applications which can be integrated with GMS China special version (GMS 7.8.87).
+
+How to integrate Ticwear SDK by Gradle:
+
+1. Import the Ticwear SDK maven repository.
+
+    ```gradle
+    allprojects {
+        repositories {
+            jcenter()
+            maven {
+                url 'https://dl.bintray.com/ticwear/maven'
+            }
+        }
+    }
+    ```
+2. Declare Ticwear SDK dependency
+
+    ```gradle
+    dependencies {
+        compile "com.ticwear:mobvoi-api:1.0.3"
+    }
+    ```
+
+    or
+
+    ```gradle
+    dependencies {
+        compile "com.ticwear:mobvoi-api-gms-china:1.0.3"
+    }
+    ```
+
+For developers who are more familiar with Eclipse, the jar library can be downloaded from [bintray.com/ticwear/maven](https://bintray.com/ticwear/maven).
+
 ### Create a Ticwear App
 
 A Ticwear app consists of two parts: 1) APK running on the watch; 2) APK running on the phone. Normally, the watch end APK will be packaged in the phone end APK, and on installation it will be automatically pushed to the watch. So, when uploading an application to Ticwear store you only need to upload the mobile phone APP. Here, we will teach you step by step how to create a simple Ticwear app.
