@@ -75,7 +75,7 @@ Using Android Studio or Eclipse you can create development projects. In Android 
 
 4. In the second "Add an activity to Wear" window, for watch device add a blank Activity.
 
-5. Download [mobvoi-api.jar][mobvoi-jar] , and add to project library dependencies.
+5. Add dependency to Ticwear SDK in project.
 
 At the end of the creation wizard, Android Studio creates a new project that contains two modules. You can now create application Activity, Service, UI and so on for the phone side and the watch side. In the mobile applications, generally do more difficult tasks such as network connections, complex calculations or tasks requiring complex user interaction. After the phone side to completes the task, you can transfer results using [data transfer API][wearable-api] to the watch.
 
