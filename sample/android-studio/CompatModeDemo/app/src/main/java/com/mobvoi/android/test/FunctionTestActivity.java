@@ -152,6 +152,7 @@ public class FunctionTestActivity extends Activity {
                     final String fh = hashCode;
                     PutDataRequest request = PutDataRequest.create("/function/data");
                     request.setData(data);
+                    request.setUrgent();
                     Wearable.DataApi.putDataItem(client, request).setResultCallback(
                             new ResultCallback<DataItemResult>() {
                                 @Override
@@ -172,6 +173,7 @@ public class FunctionTestActivity extends Activity {
                     Utils.setText(FunctionTestActivity.this, "send", hashCode);
                     final String fh = hashCode;
                     PutDataRequest request = PutDataRequest.create("/function/asset");
+                    request.setUrgent();
                     Asset asset = Asset.createFromBytes(data);
                     request.putAsset("key", asset);
                     Wearable.DataApi.putDataItem(client, request).setResultCallback(
