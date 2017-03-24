@@ -43,9 +43,84 @@ Android平台上目前支持所有主流体系结构，如armv8，armv7，mips�
 
 ## 初始化
 ``` java
-	// 非正式Appkey， 仅提供给开发者Demo使用
-	private static final String sAppKey = "com.mobvoi.test";
-	SpeechClient.getInstance().init(context, sAppKey, true, true);
+    // 非正式Appkey， 仅提供给开发者Demo使用
+    private static final String sAppKey = "com.mobvoi.test";
+    // 仅用作统计，请全局使用唯一字符串
+    private static final String sClientName = "clientName";
+    // 位置信息，格式为 “国家，省，市，区，街道，门牌号，纬度，经度”
+    private static final String sLocation = "中国,北京市,北京市,海淀区,苏州街,3号,39.989602,116.316568";
+    // 联系人列表，供离线识别使用，语义为“打电话给王斌”，“给熊伟打电话”，“发短信给邓凯”等
+    private static final String[] sContacts = {"邓凯", "王斌", "熊伟"};
+    // 应用列表，供离线识别使用，语义为“打开支付宝”，“关闭支付宝”等
+    private static final String[] sApps = {"支付宝", "微信", "微博"};
+    // 命令词列表，供离线识别使用，语义为“关机”，“重启”等
+    private static final String[] sVoiceCommands = {"关机", "重启", "飞行模式"};
+    // 设置位置信息，最好在每次搜索前设置以提高搜索准确度
+    SpeechClient.getInstance().setLocationString(deviceName, sLocation);
+    // 设置应用名称列表
+    SpeechClient.getInstance().setApps(sApps);
+    // 设置联系人列表
+    SpeechClient.getInstance().setContacts(sContacts);
+    // 设置语音命令词
+    SpeechClient.getInstance().setVoiceAction(sVoiceCommands);
+    // 设置VAD（静音检测）参数，目前对外提供基于SNR（信噪比）的VAD和基于DNN（深度神经网络）的VAD。
+    // 后两个参数的含义分别为：语音检测门限（以毫秒为单位，若检测到的语音长度大于此门限，认为说话人已开始说话）；
+    // 静音检测门限（以毫秒为单位，若检测到的静音长度大于此门限，认为说话人已停止说话）
+    SpeechClient.getInstance().setVad(sClientName, VadType.DNNBasedVad, 50, 500);
+    // 设置回调函数，具体后面有介绍
+    SpeechClient.getInstance().setClientListener(sClientName, new SpeechClientListenerImpl());
+    // 初始化，后两个参数分别为：是否激活在线识别，是否激活离线识别
+    SpeechClient.getInstance().init(context, sAppKey, true, true);
+```
+ 
+而SpeechClientListenerImpl需要实现接口SpeechClientListener
+``` java
+private class SpeechClientListenerImpl implements SpeechClientListener {
+
+    // 开始提供录音数据给语音识别引擎时回调
+    public void onStartRecord() {
+    }
+
+    // 服务器端检测到静音（说话人停止说话）后回调
+    void onRemoteSilenceDetected() {
+    }
+
+    // 输入语音数据实时的音量回调，范围为[0, 60]
+    public void onVolume(double volume) {
+    }
+
+    // 语音识别部分结果返回，比如“今天天气怎么样”，会按顺序返回“今天”，“今天天气”，“今天天气怎么样”，前两个就属于Partial Transcription
+    public void onPartialTranscription(String fixedContent) {
+    }
+
+    // 语音识别最终结果返回，比如“今天天气怎么样”，会按顺序返回“今天”，“今天天气”，“今天天气怎么样”，最后一个就是Final Transcription
+    public void onFinalTranscription(final String result) {
+    }
+
+    // 语音搜索结果返回, 为JSON格式字符串
+    public void onResult(final String result) {
+    }
+
+    // 错误码返回
+    public void onError(final int errorCode) {
+    }
+
+    // 在检测到本地语音之后，又检测到本地静音时回调
+    void onLocalSilenceDetected() {
+    }
+
+    // 一段时间未检测到本地语音时回调
+    void onNoSpeechDetected() {
+    }
+
+    // 检测到本地语音时回调
+    void onSpeechDetected() {
+    }
+
+    // 语音识别服务成功初始化后回调
+    public void onReady() {
+    }
+}
 ```
 
 ## 热词唤醒
@@ -75,83 +150,110 @@ Android平台上目前支持所有主流体系结构，如armv8，armv7，mips�
 	SpeechClient.getInstance().removeHotwordListener();
 	SpeechClient.getInstance().stopHotword();
 ``` 
-
-##语音识别 
-### 设置回调函数
-``` java
-	SpeechClient.getInstance().setClientListener(“ClientName”, new SpeechClientListenerImpl());
-```
- 
-而SpeechClientListenerImpl需要实现接口SpeechClientListener
-``` java
-	private class SpeechClientListenerImpl implements SpeechClientListener {
-	
-	// 开始提供录音数据给语音识别引擎时回调
-	public void onStartRecord() {}
-	
-	// 停止提供录音数据给语音识别引擎时回调
-	public void onStopRecord() {}
-	
-	// 输入语音数据实时的音量（db值）回调
-	public void onVolume(double volume) {}
-	 
-	// 语音识别部分结果返回，比如“今天天气怎么样”，会按顺序返回“今天”，“今天天气”，“今天天气怎么样”，前两个就属于Partial Transcription
-	public void onPartialTranscription(String fixedContent) {}
-	 
-	// 语音识别最终结果返回，比如“今天天气怎么样”，会按顺序返回“今天”，“今天天气”，“今天天气怎么样”，最后一个就是Final Transcription
-	public void onFinalTranscription(final String result) {}
- 
-	// 语音搜索结果返回
-	public void onResult(final String result) {}
-	 
-	// 错误码返回
-	public void onError(final int errorCode) {}
-	 
-	// 取消本次语音识别成功
-	public void onCancel() {}
-	 
-	// 语音识别服务已经成功初始化
-	public void onReady() {}
-	｝
-```
 ### 进行语音识别
 
-- Mobvoi支持多种语音识别方式： ASR，仅语音识别，无语义分析，无搜索结果。 
+Mobvoi支持多种语音识别方式： 
+- ASR，仅语音识别，无语义分析，无搜索结果。 
 - Semantic, 语音识别，返回语义分析，无搜索结果。
 - Onebox，语音识别，并返回搜索结果。 
 - Mix，离线在线混合的语音识别，返回结果结合二者的优势。当无网络连接时，自动回退到离线。
-- Offline，离线语音识别，支持命令词识别或通讯录识别，如打电话给王路，打开支付宝等。需要用户提供APP列表或通讯录列表。
+- Offline，离线语音识别，目前支持命令词识别，如“打电话给王路”，“打开支付宝”等。需要用户提供APP列表，通讯录列表或命令词列表。
 
 每种识别方式，调用的接口是非常类似的，均是三个接口：
 
-- Start，启动语音识别，此时系统会录音，并把录音流式发送到语音服务器。 
-- Stop，停止系统录音，等待识别结果返回。不调用此函数的话系统会自动做静音检测，若检测到静音就认为录音结束。
-- Cancel，取消此次语音识别，系统不会返回任何结果
+- startXXXRecognizer，启动语音识别，此时系统会录音，并把录音流式发送到语音服务器或离线模型。 
+- stopRecognizer，停止系统录音，等待识别结果返回。
+- cancelReconizer，取消此次语音识别，系统不会返回任何结果
 
 例子：
 ``` java
-	SpeechClient.getInstance().startMixRecognizer(deviceName);
-	SpeechClient.getInstance().stopRecognizer(deviceName);
-	SpeechClient.getInstance().cancelReconizer(deviceName);
+    // 如位置有变化，可在识别之前设置一下当前位置
+    SpeechClient.getInstance().setLocationString(sClientName, sLocation);
+
+    // 开始ASR的语音识别
+    SpeechClient.getInstance().startAsrRecognizer(sClientName);
+
+    // 开始Onebox语音搜索
+    SpeechClient.getInstance().startOneboxRecognizer(sClientName);
+    
+    // 开始离线语音识别
+    private static final String[] sContacts = {"邓凯", "王斌", "熊伟"};
+    private static final String[] sApps = {"支付宝", "微信", "微博"};
+    private static final String[] sVoiceCommands = {"关机", "重启", "飞行模式"};
+    SpeechClient.getInstance().setApps(sApps);
+    SpeechClient.getInstance().setContacts(sContacts);
+    SpeechClient.getInstance().setVoiceAction(sVoiceCommands);
+    SpeechClient.getInstance().startOfflineRecognizer(sClientName);
+
+    // 开始Mix的语音搜索
+    SpeechClient.getInstance().startMixRecognizer(sClientName);
+
+    // 停止上一次的语音识别
+    SpeechClient.getInstance().stopRecognizer(sClientName);
+
+    // 取消上一次的语音识别
+    SpeechClient.getInstance().cancelReconizer(sClientName);
 ```
  
 ##热词+语音搜索（Oneshot）
 支持热词+语音搜索一次触发（Oneshot）模式。 比如可以直接说“你好问问今天天气怎么样”， 这样在某些场景下， 用户会感觉交流更自然， 反应更快捷。 针对不同的语音搜索， 我们提供了不同的Oneshot接口， 包括： Mix， Onebox， Semantic和Offline, 以下以Mix为例：
 ###打开Oneshot
 ``` java
-	SpeechClient.getInstance().addHotwordListener();
-	SpeechClient.getInstance().startOneshotMixRecognizer(deviceName);
+    SpeechClient.getInstance().startOneshotMixRecognizer(deviceName);
 ``` 
-
 ###关闭Oneshot
 ``` java
-	SpeechClient.getInstance().stopOneshotRecognizer(deviceName);
+    SpeechClient.getInstance().stopOneshotRecognizer(deviceName);
 ``` 
 ###取消Oneshot
 ``` java
-	SpeechClient.getInstance().cancelOneshotRecognizer(deviceName); 
+    SpeechClient.getInstance().cancelOneshotRecognizer(deviceName); 
 ``` 
  
+##文本语义分析和搜索
+
+目前仅支持在线的语义分析和搜索
+
+``` java
+    SpeechClient.getInstance().startTextSemantic(deviceName, new SearchListener() {
+        @Override
+        public void onBeginSearch() {
+          // 开始进行语义解析
+        }
+  
+        @Override
+        public void onResult(String result) {
+          // 返回语义解析的结果
+        }
+
+        @Override
+        public void onError(int error) {
+          // 返回错误值
+          // NO_ERROR = 0; 无错误
+          // HTTP_ERROR = 1; HTTP错误
+          // INTERNAL_ERROR = 2; 服务器错误
+          // NETWORK_ERROR = 3; 本地网络错误
+        }
+    });
+
+    SpeechClient.getInstance().startTextSearch(deviceName, sLocation, new SearchListener() {
+        @Override
+        public void onBeginSearch() {
+          // 开始进行文本搜索
+        }
+
+        @Override
+        public void onResult(String s) {
+          // 返回文本搜索的结果
+        }
+
+        @Override
+        public void onError(int i) {
+          // 同startTextSemantic的onError回调
+        }
+    });
+```
+
 ## 语音合成
 
 ### 开始语音合成
