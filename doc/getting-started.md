@@ -32,7 +32,7 @@ Ticwear SDK主要有两个版本：
 
     ```gradle
     dependencies {
-        compile "com.ticwear:mobvoi-api:1.0.3"
+        compile "com.ticwear:mobvoi-api:1.0.5"
     }
     ```
 
@@ -276,3 +276,5 @@ MMS的API提供了一系列的接口作为手机端和手表端应用的通信�
 [wearable-api]: http://developer.chumenwenwen.com/v2/doc/ticwear/wearable-api
 [eclipse-ui-lib]: https://github.com/ticwear/sdk/raw/master/lib/eclipse-UI-lib.zip
 [mobvoi-api-demo]: https://github.com/ticwear/TicwearApiDemo
+
+
