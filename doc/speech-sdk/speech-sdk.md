@@ -116,10 +116,6 @@ private class SpeechClientListenerImpl implements SpeechClientListener {
     // 检测到本地语音时回调
     void onSpeechDetected() {
     }
-
-    // 语音识别服务成功初始化后回调
-    public void onReady() {
-    }
 }
 ```
 
