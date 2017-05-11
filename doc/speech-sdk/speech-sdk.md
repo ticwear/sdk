@@ -73,7 +73,7 @@ Android平台上目前支持所有主流体系结构，如armv8，armv7，mips�
     SpeechClient.getInstance().init(context, sAppKey, true, true);
 ```
  
-而SpeechClientListenerImpl需要实现接口SpeechClientListener
+而SpeechClientListenerImpl就是接口SpeechClientListener的实现类
 ``` java
 private class SpeechClientListenerImpl implements SpeechClientListener {
 
@@ -146,14 +146,15 @@ private class SpeechClientListenerImpl implements SpeechClientListener {
 	SpeechClient.getInstance().removeHotwordListener();
 	SpeechClient.getInstance().stopHotword();
 ``` 
-### 进行语音识别
+##语音识别
 
 Mobvoi支持多种语音识别方式： 
 - ASR，仅语音识别，无语义分析，无搜索结果。 
 - Semantic, 语音识别，返回语义分析，无搜索结果。
 - Onebox，语音识别，并返回搜索结果。 
-- Mix，离线在线混合的语音识别，返回结果结合二者的优势。当无网络连接时，自动回退到离线。
 - Offline，离线语音识别，目前支持命令词识别，如“打电话给王路”，“打开支付宝”等。需要用户提供APP列表，通讯录列表或命令词列表。
+- Mix，离线在线混合的语音搜索，返回结果结合二者的优势。当无网络连接时，自动回退到离线。
+
 
 每种识别方式，调用的接口是非常类似的，均是三个接口：
 
@@ -161,26 +162,41 @@ Mobvoi支持多种语音识别方式：
 - stopRecognizer，停止系统录音，等待识别结果返回。
 - cancelReconizer，取消此次语音识别，系统不会返回任何结果
 
-例子：
+例一： ASR（语音识别）
 ``` java
-    // 如位置有变化，可在识别之前设置一下当前位置
-    SpeechClient.getInstance().setLocationString(sClientName, sLocation);
-
     // 开始ASR的语音识别
     SpeechClient.getInstance().startAsrRecognizer(sClientName);
-
+```
+例二： Semantic（语义理解）
+```java
+    // 识别之前可设置一下当前位置
+    SpeechClient.getInstance().setLocationString(sClientName, sLocation);
+    // 开始Semantic语音搜索
+    SpeechClient.getInstance().startSemanticRecognizer(sClientName);
+```
+例三： Onebox（垂直搜索）
+```java
+    // 识别之前可设置一下当前位置
+    SpeechClient.getInstance().setLocationString(sClientName, sLocation);
     // 开始Onebox语音搜索
     SpeechClient.getInstance().startOneboxRecognizer(sClientName);
-    
+```
+例四： Offline（离线语音识别）
+```java
     // 开始离线语音识别
+    // 联系人列表，供离线识别使用，语义为“打电话给王斌”，“给熊伟打电话”，“发短信给邓凯”等
     private static final String[] sContacts = {"邓凯", "王斌", "熊伟"};
+    // 应用列表，供离线识别使用，语义为“打开支付宝”，“关闭支付宝”等
     private static final String[] sApps = {"支付宝", "微信", "微博"};
+    // 命令词列表，供离线识别使用，语义为“关机”，“重启”等
     private static final String[] sVoiceCommands = {"关机", "重启", "飞行模式"};
     SpeechClient.getInstance().setApps(sApps);
     SpeechClient.getInstance().setContacts(sContacts);
     SpeechClient.getInstance().setVoiceAction(sVoiceCommands);
     SpeechClient.getInstance().startOfflineRecognizer(sClientName);
-
+```
+例五： Mix（离在线语音搜索）
+```java
     // 开始Mix的语音搜索
     SpeechClient.getInstance().startMixRecognizer(sClientName);
 
@@ -206,9 +222,9 @@ Mobvoi支持多种语音识别方式：
     SpeechClient.getInstance().cancelOneshotRecognizer(deviceName); 
 ``` 
  
-##文本语义分析和搜索
+##基于文本的语义分析和搜索
 
-目前仅支持在线的语义分析和搜索
+基于文本的语义分析
 
 ``` java
     SpeechClient.getInstance().startTextSemantic(deviceName, new SearchListener() {
@@ -231,7 +247,9 @@ Mobvoi支持多种语音识别方式：
           // NETWORK_ERROR = 3; 本地网络错误
         }
     });
-
+```
+基于文本的垂直搜索
+``` java
     SpeechClient.getInstance().startTextSearch(deviceName, sLocation, new SearchListener() {
         @Override
         public void onBeginSearch() {
@@ -283,7 +301,43 @@ Mobvoi支持多种语音识别方式：
 ``` java
 	SpeechClient.getInstance().stopTTS();
 ```
- 
+## 静音检测
+所谓静音检测（VAD，Voice Activity Detection）就是检测什么时候声音开始，什么时候声音结束（Silence）。
+目前端和云各有一个VAD，一旦检测到声音结束就返回结果。
+
+主要接口有以下几个：
+设置端上VAD语音开始的门限值，和语音结束的门限值。端上的VAD目前支持两种：
+``` java
+        // 设置端上VAD的类型为DNN类型，语音开始门限值为100ms，语音结束门限值为1000ms
+	SpeechClient.getInstance().setVadParams(sDeviceOne, VadType.DNNBasedVad, 100, 1000);
+```
+开关端和云上的VAD
+``` java
+        // 关掉端和云上的VAD
+	SpeechClient.getInstance().enableLocalSilence(false);
+        SpeechClient.getInstance().enableRemoteSilence(false);
+
+        // 打开端和云上的VAD
+	SpeechClient.getInstance().enableLocalSilence(true);
+        SpeechClient.getInstance().enableRemoteSilence(true);
+```
+
+## 联系人同步
+支持SDK自动从通讯录中同步联系人，也支持用户自己获取联系人，并通过setContacts接口设置到SDK内部。
+如果用户设置了自动同步，则支持一系列查询接口。
+
+``` java
+        // 开启自动同步联系人
+        SpeechClient.getInstance().enableAutoSyncContacts();
+        // 通过电话号码查询联系人名
+        SpeechClient.getInstance().getContactNameByNumber("10086");
+        // 通过联系人名查询他的所有电话号码
+        SpeechClient.getInstance().getContactsByName("王斌");
+
+```
+
+
+
 # 返回结果
 
 ## 格式
