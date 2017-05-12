@@ -336,116 +336,19 @@ Mobvoi支持多种语音识别方式：
 
 ```
 
+# 错误码
 
-
-# 返回结果
-
-## 格式
-
-结果采用标准Json返回。比如“今天天气怎么样？”的搜索结果如下：
-
-``` json
-{
-    "content": {
-        "task": "public.weather",
-        "query": "天气",
-        "searchQuery": "",
-        "msgId": "",
-        "data": [{
-            "source": "中国气象局",
-            "params": {
-                "tts": "科尔沁右翼中旗今天多云转晴，20°C到33°C",
-                "pageData": [{
-                    "weatherBg": "cloudy",
-                    "wind": "6级",
-                    "weekDay": "今天",
-                    "location": "科尔沁右翼中旗",
-                    "status": "success",
-                    "date": "08月12日",
-                    "minTemp": "20",
-                    "imgUrl": "http://onebox.oss.aliyuncs.com/img/weather/cloudy_98_98.png",
-                    "maxTemp": "33",
-                    "unit": "C",
-                    "currentTemp": "33",
-                    "sunset": "19:05:00",
-                    "aqi": "77",
-                    "weather": "多云转晴",
-                    "pm25": "77",
-                    "sunrise": "04:52:00",
-                    "tips": "",
-                    "windDir": "西南风"
-                }, {
-                    "weatherBg": "clear",
-                    "maxTemp": "32",
-                    "imgUrl": "http://onebox.oss.aliyuncs.com/img/weather/sun_48_48.png",
-                    "wind": "4-5级",
-                    "unit": "C",
-                    "weekDay": "周六",
-                    "status": "default",
-                    "aqi": "41",
-                    "weather": "晴",
-                    "minTemp": "18",
-                    "date": "08-13",
-                    "windDir": "西北风"
-                }, {
-                    "weatherBg": "clear",
-                    "maxTemp": "31",
-                    "imgUrl": "http://onebox.oss.aliyuncs.com/img/weather/sun_48_48.png",
-                    "wind": "3-4级",
-                    "unit": "C",
-                    "weekDay": "周日",
-                    "status": "default",
-                    "aqi": "41",
-                    "weather": "晴",
-                    "minTemp": "18",
-                    "date": "08-14",
-                    "windDir": "西北风"
-                }, {
-                    "weatherBg": "cloudy",
-                    "maxTemp": "31",
-                    "imgUrl": "http://onebox.oss.aliyuncs.com/img/weather/cloudy_48_48.png",
-                    "wind": "3-4级",
-                    "unit": "C",
-                    "weekDay": "周一",
-                    "status": "default",
-                    "aqi": "41",
-                    "weather": "多云",
-                    "minTemp": "18",
-                    "date": "08-15",
-                    "windDir": "西风"
-                }],
-                "yesterday": {
-                    "weatherBg": "clear",
-                    "maxTemp": "39",
-                    "imgUrl": "http://onebox.oss.aliyuncs.com/img/weather/sun_48_48.png",
-                    "wind": "3-4级",
-                    "unit": "C",
-                    "weekDay": "昨天",
-                    "status": "default",
-                    "aqi": "91",
-                    "weather": "晴",
-                    "minTemp": "23",
-                    "date": "08-11",
-                    "windDir": "西北风"
-                }
-            },
-            "type": "weather_one"
-        }],
-        "semantic": {
-            "action": "com.mobvoi.semantic.action.WEATHER",
-            "extras": {}
-        },
-        "confidence": 0.8,
-        "taskName": "查天气",
-        "dataSummary": {
-            "title": "科尔沁右翼中旗 今天 多云转晴 PM2.5 77",
-            "hint": "20-33°",
-            "type": "weather_one"
-        }
-    },
-    "status": "success"
-}
-```
+| 错误码 	| 描述             	|
+|--------	|------------------	|
+| 0      	| 语音服务器错误   	|
+| 1      	| 网络错误         	|
+| 2      	| 无网络           	|
+| 3      	| 录音设备错误     	|
+| 4      	| 识别内容为空     	|
+| 5      	| 输入语音过长     	|
+| 6      	| 起始静音时间过长 	|
+| 7      	| 网络太慢         |
+ 
 
 ## 搜索领域
 
@@ -531,18 +434,5 @@ Mobvoi支持多种语音识别方式：
 | 单位换算               	|               	| 1美元等于多少人民币                          	|
 |                        	|               	| 1公里等于多少米                              	|
 
-# 错误码
-
-| 错误码 	| 描述             	|
-|--------	|------------------	|
-| 0      	| 语音服务器错误   	|
-| 1      	| 网络错误         	|
-| 2      	| 无网络           	|
-| 3      	| 录音设备错误     	|
-| 4      	| 识别内容为空     	|
-| 5      	| 输入语音过长     	|
-| 6      	| 起始静音时间过长 	|
-| 7      	| 网络太慢         |
- 
 
 
