@@ -1,47 +1,4 @@
-# 什么是SpeechSDK
-
-SpeechSDK是由出门问问提供的语音技术SDK，包括热词唤醒，语音识别，语义理解，垂直搜索，语音合成几个组成部分。
- 
-## 热词唤醒
-
-支持设备在亮屏，灭屏状态下被用户语音唤醒，支持中英文热词，唤醒率高而误触发率低。在性能方面，特别针对各种平台嵌入式设备做了优化，具有较低的CPU及内存占用率。
- 
-## 语音识别
-
-分为在线语音识别，离线语音识别以及混合式语音识别。
- 
-1. 在线语音识别
-
-   使用HMM（Hidden Markov Model）+TDNN（Time Delay Neural Network）作为声学模型，在架构上优于业界普遍采用的HMM + DNN（Deep Neural Network）。语言模型会根据搜索领域进行针对性的优化，使得语音搜索结果更准确，识别率高达95%。在用户允许的前提下，可以把联系人通讯录上传，使得在线识别联系人达到97%的准确率。同时，作为Android Wear中文语音搜索的提供方以及Ticwear的开发者，我们拥有业界最多的智能硬件采集到的语音数据，从而也使得我们针对智能硬件的语音识别准确率显著高于业界水平。
- 
-2. 离线语音识别
-
-   和在线语音识别采用类似的算法，但为了适应嵌入式系统的有限资源，针对离线应用场景使用了单独的模型和大量的性能优化。目前支持语音命令识别，通讯录识别，准确率可以达到97%。
- 
-3. 混合式语音识别
-
-   通过一定的融合策略，混合离线和在线识别的结果，使得语音识别的最终结果可以更快，更准确的返回给用户。在没有网络或者网络质量很差的情况下也能完成语音指令功能，而在网络连接稳定的情况下，可以通过在线获得更通用的语音识别服务。
- 
-## 语义理解
-
-对语音识别的结果进行语义分析。针对支持的约60个垂直领域进行了大量的优化，从而可以更准确的理解用户的查询需求。另外，还有提供给注册用户的个性化服务，比如语音指令“导航到公司”，后台可以根据用户公布给系统的公司位置信息进行自动补全。
- 
-## 垂直搜索
-
-对语音识别以及理解后的结果进行垂直领域的搜索，我们有业界最全面的互联网数据库，可以提供给用户最新，最准确的搜索信息。我们自建的搜索引擎支持约60个垂直领域，均实现了多维度的查询，比如餐馆可以支持地点、价位、无线上网等。通过NLP的精准多维度分析，结合切面搜索，能够一次性完成较为复杂的用户查询。同时，技术团队对搜索速度进行了卓有成效的优化，无需等待。
-
-## 语音合成
-
-采用HMM（Hidden Markov Model）+ DNN（Deep Neural Network）相结合的方式进行语音合成，既保证了合成结果的稳定性，同时又提升语音的自然度，实现了业界领先的合成效果。创新性的使用了离在线相结合的方式，即便在网速不理想情况下，也可以及时给用户反馈。在线语音合成使用了独创的ultra-streaming 技术，可以极速合成大量文本，让用户瞬间享受到高质量的播报服务，同时在线合成的流量低至3kB/s, 有效节约了用户的流量资源。离线语音合成针对用户设备进行深度优化，对用户的计算资源占用极低，基本不会影响到用户的电量消耗。目前合成支持多种输出格式，包括mp3, speex格式等, 可以满足应用的多种需求。
- 
-# 运行平台
-
-Android平台上目前支持所有主流体系结构，如armv8，armv7，mips，x86。
-其它平台可以提供Java版SDK，目前暂不向外开放。如有需要，请联系我们。
-
-# 使用说明
-
-## 初始化
+# 初始化
 ``` java
     // 非正式Appkey， 仅提供给开发者Demo使用
     private static final String sAppKey = "com.mobvoi.test";
@@ -63,16 +20,13 @@ Android平台上目前支持所有主流体系结构，如armv8，armv7，mips�
     SpeechClient.getInstance().setContacts(sContacts);
     // 设置语音命令词
     SpeechClient.getInstance().setVoiceAction(sVoiceCommands);
-    // 设置VAD（静音检测）参数，目前对外提供基于SNR（信噪比）的VAD和基于DNN（深度神经网络）的VAD。
-    // 后两个参数的含义分别为：语音检测门限（以毫秒为单位，若检测到的语音长度大于此门限，认为说话人已开始说话）；
-    // 静音检测门限（以毫秒为单位，若检测到的静音长度大于此门限，认为说话人已停止说话）
+    // 设置VAD（静音检测）参数
     SpeechClient.getInstance().setVad(sClientName, VadType.DNNBasedVad, 50, 500);
     // 设置回调函数，具体后面有介绍
     SpeechClient.getInstance().setClientListener(sClientName, new SpeechClientListenerImpl());
     // 初始化，后两个参数分别为：是否激活在线识别，是否激活离线识别
     SpeechClient.getInstance().init(context, sAppKey, true, true);
 ```
- 
 而SpeechClientListenerImpl就是接口SpeechClientListener的实现类
 ``` java
 private class SpeechClientListenerImpl implements SpeechClientListener {
@@ -118,10 +72,8 @@ private class SpeechClientListenerImpl implements SpeechClientListener {
     }
 }
 ```
-
-## 热词唤醒
-### 实现接口
-
+# 热词唤醒
+## 实现接口
 ``` java
 	public class HotwordListenerImpl implements HotwordListener{
 	    @Override
@@ -134,20 +86,17 @@ private class SpeechClientListenerImpl implements SpeechClientListener {
 	    void onHotwordDetected();
 	}
 ```
-
-### 打开热词监听
+## 打开热词监听
 ``` java
 	SpeechClient.getInstance().addHotwordListener();
 	SpeechClient.getInstance().startHotword();
 ```
- 
-### 关闭热词监听
+## 关闭热词监听
 ``` java
 	SpeechClient.getInstance().removeHotwordListener();
 	SpeechClient.getInstance().stopHotword();
 ``` 
-##语音识别
-
+#语音识别
 Mobvoi支持多种语音识别方式： 
 - ASR，仅语音识别，无语义分析，无搜索结果。 
 - Semantic, 语音识别，返回语义分析，无搜索结果。
@@ -207,24 +156,23 @@ Mobvoi支持多种语音识别方式：
     SpeechClient.getInstance().cancelReconizer(sClientName);
 ```
  
-##热词+语音搜索（Oneshot）
+#热词+语音搜索（Oneshot）
 支持热词+语音搜索一次触发（Oneshot）模式。 比如可以直接说“你好问问今天天气怎么样”， 这样在某些场景下， 用户会感觉交流更自然， 反应更快捷。 针对不同的语音搜索， 我们提供了不同的Oneshot接口， 包括： Mix， Onebox， Semantic和Offline, 以下以Mix为例：
-###打开Oneshot
+##打开Oneshot
 ``` java
     SpeechClient.getInstance().startOneshotMixRecognizer(deviceName);
 ``` 
-###关闭Oneshot
+##关闭Oneshot
 ``` java
     SpeechClient.getInstance().stopOneshotRecognizer(deviceName);
 ``` 
-###取消Oneshot
+##取消Oneshot
 ``` java
     SpeechClient.getInstance().cancelOneshotRecognizer(deviceName); 
 ``` 
  
-##基于文本的语义分析和搜索
-
-基于文本的语义分析
+#基于文本的语义分析和搜索
+##基于文本的语义分析
 
 ``` java
     SpeechClient.getInstance().startTextSemantic(deviceName, new SearchListener() {
@@ -248,7 +196,7 @@ Mobvoi支持多种语音识别方式：
         }
     });
 ```
-基于文本的垂直搜索
+##基于文本的垂直搜索
 ``` java
     SpeechClient.getInstance().startTextSearch(deviceName, sLocation, new SearchListener() {
         @Override
@@ -268,14 +216,13 @@ Mobvoi支持多种语音识别方式：
     });
 ```
 
-## 语音合成
-
-### 开始语音合成
-方式一： 不使用回调
+#语音合成
+##开始语音合成
+方式一：不使用回调
 ``` java
 	SpeechClient.getInstance().startTTS("海淀区天气晴朗，气温20到25摄氏度");
 ```
-方式二： 使用回调
+方式二：使用回调
 ``` java
 	class TTSListenerImpl implements TTSListener {
 
@@ -296,48 +243,44 @@ Mobvoi支持多种语音识别方式：
         }
 	SpeechClient.getInstance().startTTS("海淀区天气晴朗，气温20到25摄氏度", new TTSListenerImpl()）；
 ```
-
-### 关闭语音合成
+##关闭语音合成
 ``` java
 	SpeechClient.getInstance().stopTTS();
 ```
-## 静音检测
+#静音检测
 所谓静音检测（VAD，Voice Activity Detection）就是检测什么时候声音开始，什么时候声音结束（Silence）。
-目前端和云各有一个VAD，一旦检测到声音结束就返回结果。
+目前本地和云端各有一个VAD，一旦检测到声音结束就停止语音识别并返回结果。只有本地VAD支持参数设置。
 
-主要接口有以下几个：
-设置端上VAD语音开始的门限值，和语音结束的门限值。端上的VAD目前支持两种：
+设置本地VAD参数：
+目前提供基于SNR（信噪比）的VAD和基于DNN（深度神经网络）的VAD。
 ``` java
-        // 设置端上VAD的类型为DNN类型，语音开始门限值为100ms，语音结束门限值为1000ms
-	SpeechClient.getInstance().setVadParams(sDeviceOne, VadType.DNNBasedVad, 100, 1000);
+    // 后两个参数的含义分别为：语音检测门限（以毫秒为单位，若检测到的语音长度大于此门限，认为说话人已开始说话）；
+    // 静音检测门限（以毫秒为单位，若检测到的静音长度大于此门限，认为说话人已停止说话）
+    // 下面的代码设置本地VAD为DNN类型，语音开始门限值为100ms，语音结束门限值为1000ms
+    SpeechClient.getInstance().setVadParams(sDeviceOne, VadType.DNNBasedVad, 100, 1000);
 ```
 开关端和云上的VAD
 ``` java
-        // 关掉端和云上的VAD
-	SpeechClient.getInstance().enableLocalSilence(false);
-        SpeechClient.getInstance().enableRemoteSilence(false);
-
-        // 打开端和云上的VAD
-	SpeechClient.getInstance().enableLocalSilence(true);
-        SpeechClient.getInstance().enableRemoteSilence(true);
+    // 打开端和云上的VAD
+    SpeechClient.getInstance().enableLocalSilence(true);
+    SpeechClient.getInstance().enableRemoteSilence(true);
+    // 关掉端和云上的VAD
+    SpeechClient.getInstance().enableLocalSilence(false);
+    SpeechClient.getInstance().enableRemoteSilence(false);
 ```
-
-## 联系人同步
+#其他
+##联系人同步
 支持SDK自动从通讯录中同步联系人，也支持用户自己获取联系人，并通过setContacts接口设置到SDK内部。
 如果用户设置了自动同步，则支持一系列查询接口。
-
 ``` java
-        // 开启自动同步联系人
-        SpeechClient.getInstance().enableAutoSyncContacts();
-        // 通过电话号码查询联系人名
-        SpeechClient.getInstance().getContactNameByNumber("10086");
-        // 通过联系人名查询他的所有电话号码
-        SpeechClient.getInstance().getContactsByName("王斌");
-
+    // 开启自动同步联系人
+    SpeechClient.getInstance().enableAutoSyncContacts();
+    // 通过电话号码查询联系人名
+    SpeechClient.getInstance().getContactNameByNumber("10086");
+    // 通过联系人名查询他的所有电话号码
+    SpeechClient.getInstance().getContactsByName("王斌");
 ```
-
-# 错误码
-
+#错误码
 | 错误码 	| 描述             	|
 |--------	|------------------	|
 | 0      	| 语音服务器错误   	|
@@ -348,9 +291,8 @@ Mobvoi支持多种语音识别方式：
 | 5      	| 输入语音过长     	|
 | 6      	| 起始静音时间过长 	|
 | 7      	| 网络太慢         |
- 
 
-## 搜索领域
+##搜索领域
 
 | 垂直领域               	| Onebox        	| 查询示例                                     	|
 |------------------------	|---------------	|----------------------------------------------	|
