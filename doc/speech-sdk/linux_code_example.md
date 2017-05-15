@@ -1,3 +1,4 @@
+```cpp
 // Copyright 2016 Mobvoi Inc. All Rights Reserved.
 
 #include <string>
@@ -91,4 +92,4 @@ int main(int argc, char** argv) {
   pthread_cond_destroy(&cond);
   return 0;
 }
-
+```
