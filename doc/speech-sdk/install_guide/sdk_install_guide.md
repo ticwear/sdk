@@ -1,10 +1,12 @@
 ## Android版本
 ### 步骤一：
-下载SpeechSDK.zip。解压后，得到一个文件夹
+下载SpeechSDK.zip。解压后，得到一个文件夹 
+
 ![](1.png)
 
 ### 步骤二：
-在Android Studio中打开这个文件夹
+在Android Studio中打开这个文件夹 
+
 ![](2.png)
 
 注意：SpeechSDK的库在SpeechSDKLib文件夹下。
@@ -20,6 +22,7 @@
 ![](4.png)
 
 ## Linux版本
-仅需引用speech_sdk.h头文件，编译时链接上libmobvoisdk.so即可。
+仅需引用speech_sdk.h头文件，编译时链接上libmobvoisdk.so即可。 
+
 ![](5.png)
 
