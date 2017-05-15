@@ -1,4 +1,4 @@
-#初始化
+# 初始化
 ```cpp
 /**
  * 对SDK进行初始化。
@@ -13,7 +13,7 @@ int sdk_init();
  */
 void sdk_cleanup();
 ```
-#热词唤醒
+# 热词唤醒
 ```cpp
 /**
  * 热词唤醒回调。
@@ -50,7 +50,7 @@ void add_hotword_handler(struct hotword_handler_vtable* handlers);
  */
 void remove_hotword_handler(struct hotword_handler_vtable* handlers);
 ```
-#语音识别
+# 语音识别
 ```cpp
 /**
  * 语音识别回调。
@@ -126,7 +126,7 @@ int stop_recognizer();
  */
 int cancel_recognizer();
 ```
-#其他
+# 其他
 ```cpp
 typedef struct {
   double latitude;
@@ -148,7 +148,7 @@ void set_location(double latitude, double longitude);
  */
 void set_vlog_level(int level);
 ```
-#错误码
+# 错误码
 ```cpp
 enum error_code {
   /**
