@@ -6,9 +6,12 @@
     - [Linux版本](#linux)
 
 ## [摘要](#intro)
+<span id = "intro"></span>
 本文档提供一个step by step的SDK简易集成步骤
 
+## [安装](#installation)
 ### [Android版本](#android)
+<span id = "#android"></span>
 > **注意** 以下步骤均基于Linux+Android Studio平台  
 > 其他平台均可类似参考
     
@@ -67,7 +70,7 @@ Android Studio导入整个gradle项目
  - 导入speechsdk依赖的第三方库  
 ![](4.png)
 
-### Linux版本
+### [Linux版本](#linux)
 仅需引用speech_sdk.h头文件，编译时链接上libmobvoisdk.so即可。 
 
 ![](5.png)
