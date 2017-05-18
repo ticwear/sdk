@@ -48,12 +48,12 @@ $ unzip speechsdk-normal-XXX.zip
 
 Android Studio导入整个gradle项目
 
-![](import.png)  
+![](resource/import.png)  
 
 测试demo或者robot工程  
-![](robot.png)
+![](resource/robot.png)
 
 开发者自行创建工程，导入speech
  - 导入SpeechSDKLib下的库
  - 导入speechsdk依赖的第三方库  
-![](custom.png)
+![](resource/custom.png)
