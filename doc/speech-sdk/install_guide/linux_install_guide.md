@@ -15,8 +15,8 @@ $ unzip speechsdk-linux-XXX.zip
 ```
 SDK目录结构如下:
 ```sh.
-|-- libmobvoisdk.so　　　　　-> 唯一需链接的共享库
-`-- speech_sdk.h             -> 唯一包含的头文件
+|-- libmobvoisdk.so      -> 唯一需链接的共享库
+`-- speech_sdk.h         -> 唯一包含的头文件
 ```
 参考官方提供的[demo](linux_code_example.md)进行构建测试
 ```sh
