@@ -1,6 +1,6 @@
 ### Linux版本
 官网下载[Linux版](http://ai.chumenwenwen.com/pages/document/intro?)语音SDK. SDK格式如：*speechsdk-linux-{platform}.zip*
-> **注意** 目前仅开放mips平台版，详情参考[介绍#兼容性](introduce.md)
+> **注意** 目前仅开放mips平台版，详情参考[介绍#兼容性](../introduce.md)
 
 ```sh
 .
