@@ -12,7 +12,7 @@ Linux版语音SDK提供了**C**语言接口绑定，本文详述接口规范
     // 若多线程访问，需使用额外同步措施，如pthread_mutex_lock
     void foo(void* arg)  
     ```
- - SDK中某功能调用方式统一采用**start_xx**，**stop_xx**，**cancel_xx**， 其中**stop_xx**表示停止但仍有结果返回，**cancel_xx**表示中断无结果返回
+ - SDK中某功能调用方式统一采用**start_xx**，**stop_xx**，**cancel_xx**风格， 其中**stop_xx**表示停止但仍有结果返回，**cancel_xx**表示中断无结果返回
     ```c
     void start_foo()    // 启动'foo'
     void stop_foo()     // 关闭'foo',但仍能接收之前发送的语音响应消息
@@ -178,7 +178,7 @@ Linux版语音SDK提供了**C**语言接口绑定，本文详述接口规范
        /**
         * 返回错误信息
         *
-        * @param error_code The error code.
+        * @param error_code The error code
         */
        void (*on_error)(int error_code);
 
