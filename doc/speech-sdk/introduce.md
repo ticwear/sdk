@@ -46,11 +46,11 @@ SpeechSDK是由出门问问提供的语音技术SDK，包括热词唤醒，语�
 # 兼容性
 - Android版       
 
-    | 　　版本 　　 |         平台         | API level | 
-    |---------------|----------------------|-----------|
+    | 　　版本 　　 |         平台         | API Level | 
+    |---------------|:----------------------:|-----------:|
     | Android全量版 | armv8,armv7,mips,x86 |　>= 17    |
-    | Android轻量版 | armv7　　　　　　　　|  >= 17    |
-    | Android轻量版 | armv7　　　　　　　　|  >= 17    |
+    | Android轻量版 | ~~armv8~~,armv7,~~mips,x86~~ |　>= 17    |
+    | Android轻量版 | ~~armv8~~,armv7,~~mips,x86~~ |　>= 17    |
 
 - Linux版  
   暂只支持mips平台，不久将开放armv8，armv7，x86平台　
