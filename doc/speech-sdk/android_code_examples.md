@@ -1,19 +1,19 @@
 # 初始化
+设置一系列参数，并进行初始化。
 ``` java
     // 非正式Appkey， 仅提供给开发者Demo使用
     private static final String sAppKey = "com.mobvoi.test";
     // 仅用作统计，请全局使用唯一字符串
     private static final String sClientName = "clientName";
-    // 位置信息，格式为 “国家，省，市，区，街道，门牌号，纬度，经度”
-    private static final String sLocation = "中国,北京市,北京市,海淀区,苏州街,3号,39.989602,116.316568";
     // 联系人列表，供离线识别使用，语义为“打电话给王斌”，“给熊伟打电话”，“发短信给邓凯”等
     private static final String[] sContacts = {"邓凯", "王斌", "熊伟"};
     // 应用列表，供离线识别使用，语义为“打开支付宝”，“关闭支付宝”等
     private static final String[] sApps = {"支付宝", "微信", "微博"};
     // 命令词列表，供离线识别使用，语义为“关机”，“重启”等
     private static final String[] sVoiceCommands = {"关机", "重启", "飞行模式"};
-    // 设置位置信息，最好在每次搜索前设置以提高搜索准确度
-    SpeechClient.getInstance().setLocationString(deviceName, sLocation);
+    // 位置信息，格式为 “国家，省，市，区，街道，门牌号，纬度，经度”
+    private static final String sLocation = "中国,北京市,北京市,海淀区,苏州街,3号,39.989602,116.316568";
+
     // 设置应用名称列表
     SpeechClient.getInstance().setApps(sApps);
     // 设置联系人列表
@@ -22,6 +22,8 @@
     SpeechClient.getInstance().setVoiceAction(sVoiceCommands);
     // 设置VAD（静音检测）参数
     SpeechClient.getInstance().setVad(sClientName, VadType.DNNBasedVad, 50, 500);
+    // 设置位置信息，最好在每次搜索前设置以提高搜索准确度
+    SpeechClient.getInstance().setLocationString(deviceName, sLocation);
     // 设置回调函数，具体后面有介绍
     SpeechClient.getInstance().setClientListener(sClientName, new SpeechClientListenerImpl());
     // 初始化，后两个参数分别为：是否激活在线识别，是否激活离线识别
@@ -259,7 +261,9 @@ Mobvoi支持多种语音识别方式：
     // 下面的代码设置本地VAD为DNN类型，语音开始门限值为100ms，语音结束门限值为1000ms
     SpeechClient.getInstance().setVadParams(sDeviceOne, VadType.DNNBasedVad, 100, 1000);
 ```
-开关端和云上的VAD
+开关端和云上的VAD：
+对于某些不需要静音检测的应用场景，比如用户点击遥控器按钮的时候开始录音，松开的时候结束录音，开发者需要在录音之前
+关掉端和云上的VAD。一旦回到需要静音检测的场景，必须重新打开之前关掉的VAD。
 ``` java
     // 打开端和云上的VAD
     SpeechClient.getInstance().enableLocalSilence(true);
