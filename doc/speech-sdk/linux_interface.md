@@ -12,11 +12,7 @@ Linux版语音SDK提供了**C**语言接口绑定，本文详述接口规范
     // 若多线程访问，需使用额外同步措施，如pthread_mutex_lock
     void foo(void* arg)  
     ```
- - SDK中某功能调用方式统一采用**start_xx**和**stop_xx**形式，若该功能可接收返回信息，则会提供**cancel_xx**接口，**stop_xx**表示停止但仍有结果返回，**cancel_xx**表示中断且无结果返回
-     ```c
-    void start_foo()    // 启动'foo'
-    void stop_foo()     // 关闭'foo'
-    ```
+ - SDK中某功能调用方式统一采用**start_xx**，**stop_xx**，**cancel_xx**， 其中**stop_xx**表示停止但仍有结果返回，**cancel_xx**表示中断无结果返回
     ```c
     void start_foo()    // 启动'foo'
     void stop_foo()     // 关闭'foo',但仍能接收之前发送的语音响应消息
@@ -63,7 +59,7 @@ Linux版语音SDK提供了**C**语言接口绑定，本文详述接口规范
     ```  
     ```c
     /**
-     * 添加热词唤醒回调。
+     * 添加热词唤醒回调
      *
      * @param handlers 热词唤醒回调
      */
@@ -71,7 +67,7 @@ Linux版语音SDK提供了**C**语言接口绑定，本文详述接口规范
     ```  
     ```c
     /**
-     * 去掉热词唤醒回调。
+     * 去掉热词唤醒回调
      *
      * @param handlers 热词唤醒回调
      */
@@ -90,9 +86,9 @@ Linux版语音SDK提供了**C**语言接口绑定，本文详述接口规范
      */
     int send_speech_frame(const char * frame, int size);
     ```  
-    ```
+    ```c
     /**
-     * 设置语音识别回调。
+     * 设置语音识别回调
      *
      * @param handlers 语音识别回调
      */
@@ -100,7 +96,7 @@ Linux版语音SDK提供了**C**语言接口绑定，本文详述接口规范
     ```  
     ```c
     /**
-     * 开始在线语音识别。
+     * 开始在线语音识别
      *
      * @return 成功返回0， 失败返回-1
      */
@@ -108,7 +104,7 @@ Linux版语音SDK提供了**C**语言接口绑定，本文详述接口规范
     ```  
     ```c
     /**
-     * 停止在线语音识别，之后会有结果返回。
+     * 停止在线语音识别，之后会有结果返回
      *
      * @return 成功返回0， 失败返回-1
      */
@@ -116,7 +112,7 @@ Linux版语音SDK提供了**C**语言接口绑定，本文详述接口规范
     ```  
     ```c
     /**
-     * 取消在线语音识别，无任何结果返回。
+     * 取消在线语音识别，无任何结果返回
      *
      * @return 成功返回0， 失败返回-1
      */
@@ -143,14 +139,14 @@ Linux版语音SDK提供了**C**语言接口绑定，本文详述接口规范
     void set_vlog_level(int level);
     ```
 - 备注　
-    > SDK中日志会打印到到标准输出，例如*stdout,stderr*
+    > SDK中日志会打印到到标准输出，例如*stdout，stderr*
 
 ### 类型
 - hotword_handler_vtable
     ```c
      typedef struct hotword_handler_vtable {
        void (*on_hotword_detected)();
-     }hotword_handler_vtable;
+     } hotword_handler_vtable;
     ```
 
 - speech_client_handler_vtable
@@ -190,7 +186,7 @@ Linux版语音SDK提供了**C**语言接口绑定，本文详述接口规范
         * 当本地检测到说话结束时回调
         */
        void (*on_local_silence_detected)();
-    };
+    } speech_client_handler_vtable;
     ```
 
 ### 错误码

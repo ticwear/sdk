@@ -7,6 +7,7 @@
 
 #include <string>
 #include <iostream>
+#include <assert.h>
 #include "speech_sdk.h"
 
 using std::cout;
