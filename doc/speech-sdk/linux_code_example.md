@@ -1,10 +1,13 @@
+热词唤醒＋语音识别Demo
+===============================
+
+**完整示例代码如下：**
 ```cpp
 // Copyright 2016 Mobvoi Inc. All Rights Reserved.
 
 #include <string>
 #include <iostream>
-#include <assert.h>
-#include "sdk/speech_sdk.h"
+#include "speech_sdk.h"
 
 using std::cout;
 using std::endl;
@@ -49,7 +52,7 @@ void on_hotword_detected() {
 }
 
 int main(int argc, char** argv) {
-  /* Initialize mutex and condition variable objects */
+  // Initialize mutex and condition variable objects
   pthread_mutex_init(&mutex, NULL);
   pthread_cond_init (&cond, NULL);
   sdk_init();
