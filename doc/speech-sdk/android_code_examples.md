@@ -253,25 +253,24 @@ Mobvoi支持多种语音识别方式：
 所谓静音检测（VAD，Voice Activity Detection）就是检测什么时候声音开始，什么时候声音结束（Silence）。
 目前本地和云端各有一个VAD，一旦检测到声音结束就停止语音识别并返回结果。只有本地VAD支持参数设置。
 
-设置本地VAD参数：
+- 设置本地VAD参数：
 目前提供基于SNR（信噪比）的VAD和基于DNN（深度神经网络）的VAD。
-``` java
+    ``` java
     // 后两个参数的含义分别为：语音检测门限（以毫秒为单位，若检测到的语音长度大于此门限，认为说话人已开始说话）；
     // 静音检测门限（以毫秒为单位，若检测到的静音长度大于此门限，认为说话人已停止说话）
     // 下面的代码设置本地VAD为DNN类型，语音开始门限值为100ms，语音结束门限值为1000ms
     SpeechClient.getInstance().setVadParams(sDeviceOne, VadType.DNNBasedVad, 100, 1000);
-```
-开关端和云上的VAD：
-对于某些不需要静音检测的应用场景，比如用户点击遥控器按钮的时候开始录音，松开的时候结束录音，开发者需要在录音之前
-关掉端和云上的VAD。一旦回到需要静音检测的场景，必须重新打开之前关掉的VAD。
-``` java
+    ```
+- 开关端和云上的VAD：
+对于某些不需要静音检测的应用场景，比如用户点击遥控器按钮的时候开始录音，松开的时候结束录音，开发者需要在录音之前关掉端和云上的VAD。一旦回到需要静音检测的场景，必须重新打开之前关掉的VAD。
+    ``` java
     // 打开端和云上的VAD
     SpeechClient.getInstance().enableLocalSilence(true);
     SpeechClient.getInstance().enableRemoteSilence(true);
     // 关掉端和云上的VAD
     SpeechClient.getInstance().enableLocalSilence(false);
     SpeechClient.getInstance().enableRemoteSilence(false);
-```
+    ```
 # 其他
 ## 联系人同步
 支持SDK自动从通讯录中同步联系人，也支持用户自己获取联系人，并通过setContacts接口设置到SDK内部。
