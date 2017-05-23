@@ -75,7 +75,9 @@ private class SpeechClientListenerImpl implements SpeechClientListener {
 }
 ```
 # 热词唤醒
-## 实现接口
+目前有两种唤醒热词，一种是默认的热词“你好问问”，一种是用户可动态定制的热词。
+## 默认热词
+### 实现接口
 ``` java
 	public class HotwordListenerImpl implements HotwordListener{
 	    @Override
@@ -88,16 +90,26 @@ private class SpeechClientListenerImpl implements SpeechClientListener {
 	    void onHotwordDetected();
 	}
 ```
-## 打开热词监听
+### 打开热词监听
 ``` java
 	SpeechClient.getInstance().addHotwordListener();
 	SpeechClient.getInstance().startHotword();
 ```
-## 关闭热词监听
+### 关闭热词监听
 ``` java
 	SpeechClient.getInstance().removeHotwordListener();
 	SpeechClient.getInstance().stopHotword();
-``` 
+```
+## 动态定制
+``` java
+	// 设定动态定制的热词，用户呼出任何一个均能唤醒，建议不要超过10个。
+	private static final String[] sKeywords = {"你好问问", "问问你好", "你好啊问问", "问问帮帮忙"};
+	// 训练一个名为Keywords_example的热词模型
+	SpeechClient.getInstance().setKeywords("Keywords_example", sKeywords);
+	// 使用这个模型进行命令词识别，识别的结果会在SpeechClientListener的onPartialTranscription中回调
+	SpeechClient.getInstance().startMultiKeywordsRecognizer(sDeviceOne, "Keywords_example");
+```
+ 
 # 语音识别
 Mobvoi支持多种语音识别方式： 
 - ASR，仅语音识别，无语义分析，无搜索结果。 
