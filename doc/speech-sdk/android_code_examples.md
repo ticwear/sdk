@@ -110,10 +110,10 @@ private class SpeechClientListenerImpl implements SpeechClientListener {
 	SpeechClient.getInstance().startMultiKeywordsRecognizer(sClientName, "Keywords_example");
 ```
  
-# 语音识别
-Mobvoi支持多种语音识别方式： 
+# 语音搜索
+Mobvoi支持多种语音搜索API： 
 - ASR，仅语音识别，无语义分析，无搜索结果。 
-- Semantic, 语音识别，返回语义分析，无搜索结果。
+- Semantic，语音识别，返回语义分析，无搜索结果。
 - Onebox，语音识别，并返回搜索结果。 
 - Offline，离线语音识别，目前支持命令词识别，如“打电话给王路”，“打开支付宝”等。需要用户提供APP列表，通讯录列表或命令词列表。
 - Mix，离线在线混合的语音搜索，返回结果结合二者的优势。当无网络连接时，自动回退到离线。
@@ -121,7 +121,7 @@ Mobvoi支持多种语音识别方式：
 
 每种识别方式，调用的接口是非常类似的，均是三个接口：
 
-- startXXXRecognizer，启动语音识别，此时系统会录音，并把录音流式发送到语音服务器或离线模型。 
+- start{Asr,Semantic,Onebox,Offline,Mix}Recognizer，启动语音识别，此时系统会录音，并把录音流式发送到语音服务器或离线模型。 
 - stopRecognizer，停止系统录音，等待识别结果返回。
 - cancelReconizer，取消此次语音识别，系统不会返回任何结果
 
