@@ -22,17 +22,17 @@ SpeechSDK是由出门问问提供的语音技术SDK，包括热词唤醒、语�
  
 - 在线语音识别  
 	
-   使用[HMM(Hidden Markov Model)](https://en.wikipedia.org/wiki/Hidden_Markov_model)+ [TDNN(Time Delay Neural Network)](https://en.wikipedia.org/wiki/Time_delay_neural_network)作为声学模型，在架构上优于业界普遍采用的[HMM](https://en.wikipedia.org/wiki/Hidden_Markov_model) + [DNN(Deep Neural Network)](https://en.wikipedia.org/wiki/Deep_learning#Brief_discussion_of_deep_neural_networks)。语言模型会根据搜索领域进行针对性的优化，使得语音搜索结果更准确，识别率高达95%。在用户允许的前提下，可以把联系人通讯录上传，使得在线识别联系人达到更高的准确率。
+使用[HMM(Hidden Markov Model)](https://en.wikipedia.org/wiki/Hidden_Markov_model)+ [TDNN(Time Delay Neural Network)](https://en.wikipedia.org/wiki/Time_delay_neural_network)作为声学模型，在架构上优于业界普遍采用的[HMM](https://en.wikipedia.org/wiki/Hidden_Markov_model) + [DNN(Deep Neural Network)](https://en.wikipedia.org/wiki/Deep_learning#Brief_discussion_of_deep_neural_networks)。语言模型会根据搜索领域进行针对性的优化，使得语音搜索结果更准确，识别率高达95%。在用户允许的前提下，可以把联系人通讯录上传，使得在线识别联系人达到更高的准确率。
    
-   同时，作为Android Wear中文语音搜索的提供方以及Ticwear的开发者，我们拥有业界最多的智能硬件上采集到的语音数据，从而也使得我们针对智能硬件的语音识别准确率显著高于业界水平。
+同时，作为Android Wear中文语音搜索的提供方以及Ticwear的开发者，我们拥有业界最多的智能硬件上采集到的语音数据，从而也使得我们针对智能硬件的语音识别准确率显著高于业界水平。
  
 - 离线语音识别
 
-   和在线语音识别采用类似的算法，但为了适应嵌入式系统的有限资源，针对离线应用场景使用了单独的模型和大量的性能优化。目前主要支持语音命令识别，以及通讯录相关的识别。
+和在线语音识别采用类似的算法，但为了适应嵌入式系统的有限资源，针对离线应用场景使用了单独的模型和大量的性能优化。目前主要支持语音命令识别，以及通讯录相关的识别。
  
 - 混合式语音识别
 
-   通过一定的融合策略，混合离线和在线识别的结果，使得语音识别的最终结果可以更快，更准确的返回给用户。在没有网络或者网络质量很差的情况下也能完成语音指令功能，而在网络连接稳定的情况下，可以通过在线获得更通用的语音识别服务。
+通过一定的融合策略，混合离线和在线识别的结果，使得语音识别的最终结果可以更快，更准确的返回给用户。在没有网络或者网络质量很差的情况下也能完成语音指令功能，而在网络连接稳定的情况下，可以通过在线获得更通用的语音识别服务。
  
 ### 语义理解
 对语音识别的结果进行语义分析。针对支持的约60个垂直领域进行了大量的优化，从而可以更准确的理解用户的查询需求。另外，还有提供给注册用户的个性化服务，比如语音指令“导航到公司”，后台可以根据用户公布给系统的公司位置信息进行自动补全。  
