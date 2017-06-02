@@ -55,5 +55,5 @@ SpeechSDK是由出门问问提供的语音技术SDK，包括热词唤醒、语�
 
 
 ### Linux版  
-  暂只支持mips平台，不久将开放armv8，armv7，x86平台　
+支持armv8, armv7, mips, x86
 
