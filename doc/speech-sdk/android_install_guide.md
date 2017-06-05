@@ -1,9 +1,9 @@
 
 ### Android版本
-> **注意** 以下步骤均基于Linux + Android Studio平台  
+> **注意** 以下步骤均基于Linux平台，使用Android Studio开发    
 > 其他平台均可类似参考
     
-官网下载[Android版](http://ai.chumenwenwen.com/pages/document/intro?id=download)语音SDK。SDK格式如：*speechsdk-{level}-{version}.zip*
+官网下载[Android版本](http://ai.chumenwenwen.com/pages/document/intro?id=download)语音SDK。SDK格式如：*speechsdk-{level}-{version}.zip*
 ```sh
 .
 |-- speechsdk-mini-1.02-1493367956288.zip     -> 超轻量版
