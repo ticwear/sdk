@@ -1,5 +1,5 @@
 ### Linux版本
-官网下载[Linux版](http://ai.chumenwenwen.com/pages/document/intro?)语音SDK。SDK格式如：*speechsdk-linux-{version}.zip*  
+官网下载[Linux版本](http://ai.chumenwenwen.com/pages/document/intro?)语音SDK。SDK文件名格式为：*speechsdk-linux-{version}.zip*  
 
 
 解压到指定目录
