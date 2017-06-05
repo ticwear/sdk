@@ -22,7 +22,7 @@ SpeechSDK是由出门问问提供的语音技术SDK，包括热词唤醒、语�
  
 - 在线语音识别  
 	
-使用[HMM(Hidden Markov Model)](https://en.wikipedia.org/wiki/Hidden_Markov_model)+ [TDNN(Time Delay Neural Network)](https://en.wikipedia.org/wiki/Time_delay_neural_network)作为声学模型，在架构上优于业界普遍采用的[HMM](https://en.wikipedia.org/wiki/Hidden_Markov_model) + [DNN(Deep Neural Network)](https://en.wikipedia.org/wiki/Deep_learning#Brief_discussion_of_deep_neural_networks)。语言模型会根据搜索领域进行针对性的优化，使得语音搜索结果更准确，识别率高达95%。在用户允许的前提下，可以把联系人通讯录上传，使得在线识别联系人达到更高的准确率。
+使用[HMM (Hidden Markov Model)](https://en.wikipedia.org/wiki/Hidden_Markov_model) + [TDNN (Time Delay Neural Network)](https://en.wikipedia.org/wiki/Time_delay_neural_network)作为声学模型，在架构上优于业界普遍采用的[HMM](https://en.wikipedia.org/wiki/Hidden_Markov_model) + [DNN (Deep Neural Network)](https://en.wikipedia.org/wiki/Deep_learning#Brief_discussion_of_deep_neural_networks)。语言模型会根据搜索领域进行针对性的优化，使得语音搜索结果更准确，识别率高达95%。在用户允许的前提下，可以把联系人通讯录上传，使得在线识别联系人达到更高的准确率。
    
 同时，作为Android Wear中文语音搜索的提供方以及Ticwear的开发者，我们拥有业界最多的智能硬件上采集到的语音数据，从而也使得我们针对智能硬件的语音识别准确率显著高于业界水平。
  
@@ -41,9 +41,9 @@ SpeechSDK是由出门问问提供的语音技术SDK，包括热词唤醒、语�
 对语音识别以及理解后的结果进行垂直领域的搜索，我们有业界最全面的互联网数据库，可以提供给用户最新，最准确的搜索信息。我们自建的搜索引擎支持约60个垂直领域，均实现了多维度的查询，比如餐馆可以支持地点、价位、无线上网等。通过NLP的精准多维度分析，结合切面搜索，能够一次性完成较为复杂的用户查询。同时，技术团队对搜索速度进行了卓有成效的优化，减少搜索延时。  
 
 ### 语音合成
-采用[HMM(Hidden Markov Model)](https://en.wikipedia.org/wiki/Hidden_Markov_model)+ [DNN(Deep Neural Network)](https://en.wikipedia.org/wiki/Deep_learning#Brief_discussion_of_deep_neural_networks)相结合的方式进行语音合成，既保证了合成结果的稳定性，同时又提升语音的自然度，实现了业界领先的合成效果。创新性的使用了离在线相结合的方式，即便在网速不理想情况下，也可以及时给用户反馈。
+采用[HMM](https://en.wikipedia.org/wiki/Hidden_Markov_model) + [DNN](https://en.wikipedia.org/wiki/Deep_learning#Brief_discussion_of_deep_neural_networks)相结合的方式进行语音合成，既保证了合成结果的稳定性，同时又提升语音的自然度，实现了业界领先的合成效果。创新性的使用了离在线相结合的方式，即便在网速不理想情况下，也可以及时给用户反馈。
 
-在线语音合成使用了独创的**Ultra-Streaming** 技术，可以极速合成大量文本，让用户瞬间享受到高质量的播报服务，同时在线合成的流量低至3kB/s, 有效节约了用户的流量资源。离线语音合成针对用户设备进行深度优化，对设备的计算资源占用极低，基本不会影响到设备的电量消耗。目前合成支持多种输出格式，包括mp3、speex格式等, 可以满足应用的多种需求。  
+在线语音合成使用了独创的**Ultra Streaming**技术，可以极速合成大量文本，让用户瞬间享受到高质量的播报服务，同时在线合成的流量低至3kB/s, 有效节约了用户的流量资源。离线语音合成针对用户设备进行深度优化，对设备的计算资源占用极低，基本不会影响到设备的电量消耗。目前合成支持多种输出格式，包括mp3、speex格式等, 可以满足应用的多种需求。  
  
 ## 兼容性
 ### Android版     
