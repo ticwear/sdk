@@ -283,10 +283,14 @@ Mobvoi支持多种语音搜索API：
     SpeechClient.getInstance().enableLocalSilence(false);
     SpeechClient.getInstance().enableRemoteSilence(false);
     ```
+    
 # 其他
+
 ## 联系人同步
+
 支持SDK自动从通讯录中同步联系人，也支持用户自己获取联系人，并通过setContacts接口设置到SDK内部。
 如果用户设置了自动同步，则支持一系列查询接口。
+
 ``` java
     // 开启自动同步联系人
     SpeechClient.getInstance().enableAutoSyncContacts();
@@ -295,7 +299,9 @@ Mobvoi支持多种语音搜索API：
     // 通过联系人名查询他的所有电话号码
     SpeechClient.getInstance().getContactsByName("王斌");
 ```
+
 # 错误码
+
 | 错误码 	| 描述　　　　　　|  
 |---------------|----------------|   
 | 0      	| 语音服务器错误　|  
