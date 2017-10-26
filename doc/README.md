@@ -13,7 +13,7 @@
 
 如果你想为 Ticwear 增加新的文档，请阅读 [如何添加更多文档][add-new-doc]。
 
-[ticwear-dev-site]: http://developer.chumenwenwen.com/v2/doc/ticwear/getting-started
+[ticwear-dev-site]: https://developer.chumenwenwen.com/doc/ticwear.html#doc/1/1
 [developer-guide]: /doc/developer-guide.md
 [getting-started]: /doc/getting-started.md
 [gms-compat]: /doc/gms-compact.md

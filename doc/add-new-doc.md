@@ -22,4 +22,4 @@
 [stackedit]: https://stackedit.io/
 [ticwear-sdk]: https://github.com/ticwear/sdk
 [gms-compat]: /doc/gms-compact.md
-[gms-compat-dev]: http://developer.chumenwenwen.com/v2/doc/ticwear/gms-compat
+[gms-compat-dev]: https://developer.chumenwenwen.com/doc/ticwear.html#doc/1/2

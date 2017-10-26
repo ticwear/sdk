@@ -273,7 +273,7 @@ MMS的API提供了一系列的接口作为手机端和手表端应用的通信�
 
 
 [mobvoi-jar]: https://github.com/ticwear/sdk/raw/master/lib/mobvoi-api.jar
-[wearable-api]: http://developer.chumenwenwen.com/v2/doc/ticwear/wearable-api
+[wearable-api]: https://developer.chumenwenwen.com/doc/ticwear.html#doc/2/3
 [eclipse-ui-lib]: https://github.com/ticwear/sdk/raw/master/lib/eclipse-UI-lib.zip
 [mobvoi-api-demo]: https://github.com/ticwear/TicwearApiDemo
 

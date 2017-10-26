@@ -266,7 +266,7 @@ setprop log.tag.WearableConn VERBOSE
 
 [aw]: https://www.android.com/wear/
 [ticwear]: http://ticwear.com/
-[ticwear-dev]: http://developer.chumenwenwen.com/v2/doc/ticwear/getting-started
+[ticwear-dev]: https://developer.chumenwenwen.com/doc/ticwear.html
 [wenwen]: http://chumenwenwen.com/
 [as]: http://developer.android.com/sdk/index.html
 [aw-pkg]: http://developer.android.com/training/wearables/apps/packaging.html
