@@ -19,6 +19,6 @@ android {
 }
 
 dependencies {
-    compile "com.ticwear:mobvoi-api:1.0.3"
+    compile "com.ticwear:mobvoi-api:1.0.4"
     compile 'com.google.android.gms:play-services-wearable:10.0.0'
 }
