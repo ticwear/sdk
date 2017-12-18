@@ -14,7 +14,7 @@ Ticwear SDK主要有两个版本：
 1. mobvoi-api
    * 这个是通用版，可用于开发纯Ticwear应用，也可用于开发与Android Wear（GMS通用版）兼容的应用。
 2. mobvoi-api-gms-china
-   * 这个是兼容Android Wear中国版（GMS中国版，即GMS 7.8.87）的特殊版本。
+   * 这个是兼容老的Android Wear中国版（GMS 7.8.87）的特殊版本（Android Wear 2.0及更新版本请使用mobvoi-api通用版本）。
 
 使用Gradle方式集成Ticwear SDK的方法如下：
 
@@ -34,7 +34,7 @@ Ticwear SDK主要有两个版本：
 
     ```gradle
     dependencies {
-        compile "com.ticwear:mobvoi-api:1.0.5"
+        compile "com.ticwear:mobvoi-api:1.0.6"
     }
     ```
 
@@ -104,5 +104,3 @@ http://developer.chumenwenwen.com/doc/ticwear.html#doc/1/2
 * 重新编译打包
 
 3. 更多兼容AW的详情，参考开发者文档中[AW应用兼容](http://developer.chumenwenwen.com/doc/ticwear.html#doc/1/2)
-
-
