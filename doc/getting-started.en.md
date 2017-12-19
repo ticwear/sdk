@@ -32,7 +32,7 @@ How to integrate Ticwear SDK by Gradle:
 
     ```gradle
     dependencies {
-        compile "com.ticwear:mobvoi-api:1.0.5"
+        compile "com.ticwear:mobvoi-api:1.0.7"
     }
     ```
 
@@ -55,10 +55,10 @@ A Ticwear app consists of two parts: 1) APK running on the watch; 2) APK running
 Before developing an application, upgrade to the latest Android SDK version, so you can get the [latest API support](https://developer.android.com/sdk/index.html).
 
 The Ticwear watch system is compatible with Android 5.1's API, so developers can base watch-side applications on Android 5.1 SDK, and the application can be run directly on the Ticwear system. But during the development of the mobile application same as when developing ordinary Android Apps, you need to take into account the users supported Android version to determine the API you should use.
- 
+
 ### Configuring Developer Environment
 
-Download the latest version of Ticwatch Companion, and install on your phone. Android phone system must be Android 4.3 or later. Connect watch and mobile phone to your computer. If the watch can not be directly connected to the computer via USB, use [WiFi](#wifi-debug) or [Bluetooth](#bt-debug) debugging to connect the watch. 
+Download the latest version of Ticwatch Companion, and install on your phone. Android phone system must be Android 4.3 or later. Connect watch and mobile phone to your computer. If the watch can not be directly connected to the computer via USB, use [WiFi](#wifi-debug) or [Bluetooth](#bt-debug) debugging to connect the watch.
 
 ### Create Project
 
@@ -70,7 +70,7 @@ Using Android Studio or Eclipse you can create development projects. In Android 
 
 	1. Select Phone and Tablet and select the API 18: Android 4.3 (Jelly Bean ) as Minimum SDK.
 	2. Select Wear and select API 20: Android 4.4 (KitKat Wear) as Minimum SDK.
-	
+
 3. In the first window "Add an activity to Mobile", for mobile device add a blank Activity.
 
 4. In the second "Add an activity to Wear" window, for watch device add a blank Activity.
@@ -79,7 +79,7 @@ Using Android Studio or Eclipse you can create development projects. In Android 
 
 At the end of the creation wizard, Android Studio creates a new project that contains two modules. You can now create application Activity, Service, UI and so on for the phone side and the watch side. In the mobile applications, generally do more difficult tasks such as network connections, complex calculations or tasks requiring complex user interaction. After the phone side to completes the task, you can transfer results using [data transfer API][wearable-api] to the watch.
 
-### Installing Watch-side Application 
+### Installing Watch-side Application
 
 You can use `adb install` to install watch-side APK. You can also use Android Studio or Eclipse to directly install watch-side APK to watch.
 
@@ -146,7 +146,7 @@ Phone-side and watch-side applications can be installed independently on the pho
     <meta-data android:name="com.mobvoi.ticwear.app"
                     android:resource="@xml/wearable_app_desc"/>
     ```
-    
+
 6. Packaged, the watch-side app should end with the same signature as the phone-side APK signature.
 
 7. The resulting mobile terminal APK should comply with the requirements to upload to the app store.
@@ -180,9 +180,8 @@ If the watch can not connect to a computer via USB, Ticwear supports the direct 
     ``` shell
     adb connect <watch ip>:7272
     ```
-    
-6. Then if the command line returns "connected to watch ip: 7272". You can use adb command operations on the watch.  
 
+6. Then if the command line returns "connected to watch ip: 7272". You can use adb command operations on the watch:
 
     ``` shell
     adb -s <watch ip>:7272 <command>
@@ -246,7 +245,7 @@ The following are some of the main categories:
 - **CardFragment**: Contains expandable card, while in the vertical direction slidable container.
 - **CircledImageView**: A circle-shaped image view.
 - **ConfirmationActivity**: Displays confirmation animations after the user completes an action on the wearable.
-- **CrossFadeDrawable**: Contains two child drawables and provides methods to directly adjust the blend between the two. 
+- **CrossFadeDrawable**: Contains two child drawables and provides methods to directly adjust the blend between the two.
 - **DelayedConfirmationView**: A delayed confirmation view. Provides confirmation countdown function.
 - **DismissOverlayView**: A view for implementing long-press-to-dismiss in an app.
 - **DotsPageIndicator**: A page indicator for GridViewPager which identifies the current page in relation to all available pages on the current row.
@@ -264,4 +263,3 @@ For the details and demo of Mobvoi-api, please refer to the [project][mobvoi-api
 [wearable-api]: https://developer.chumenwenwen.com/en/doc/ticwear.html#doc/5/17
 [eclipse-ui-lib]: https://github.com/ticwear/sdk/raw/master/lib/eclipse-UI-lib.zip
 [mobvoi-api-demo]: https://github.com/ticwear/TicwearApiDemo
-
