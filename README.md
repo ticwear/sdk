@@ -34,7 +34,7 @@ Ticwear SDK主要有两个版本：
 
     ```gradle
     dependencies {
-        compile "com.ticwear:mobvoi-api:1.0.7"
+        compile "com.ticwear:mobvoi-api:1.0.8"
     }
     ```
 
