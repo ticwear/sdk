@@ -32,7 +32,7 @@ How to integrate Ticwear SDK by Gradle:
 
     ```gradle
     dependencies {
-        compile "com.ticwear:mobvoi-api:1.0.8"
+        compile "com.ticwear:mobvoi-api:1.1.0"
     }
     ```
 
