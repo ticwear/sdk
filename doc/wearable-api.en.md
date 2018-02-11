@@ -21,7 +21,7 @@ MobvoiApiClient mClient = new MobvoiApiClient.Builder(this)
                 Log.d(TAG, "onConnectionSuspended: " + cause);
             }
         })
-        .addOnConnectionFailedListener(new OnCoionFailedListener() {
+        .addOnConnectionFailedListener(new OnConnectionFailedListener() {
             @Override
             public void onConnectionFailed(ConnectionResult result) {
                 Log.d(TAG, "onConnectionFailed: " + result);
