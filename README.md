@@ -48,6 +48,15 @@ Ticwear SDK主要有两个版本：
 
 对于使用Eclipse的开发人员，可以从 [bintray.com/ticwear/maven](https://bintray.com/ticwear/maven) 上下载JAR包使用。
 
+### ProGuard
+
+如果您开启了混淆，请添加如下规则：
+
+```
+-dontwarn mobvoiapi.**
+-keep public class com.mobvoi.android.common.** { *; }
+```
+
 ## 非Android Wear开发者
 我们建议您采用如下步骤
 * Step 1：运行sample文件夹里的示例程序来了解SDK提供的基本功能，如数据传输和语音输入
